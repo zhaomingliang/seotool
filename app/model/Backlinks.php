@@ -46,7 +46,7 @@ class Backlinks
             case 'add':
                 $this->additionalData['title'] = 'SEO Tool: Backlink hinzufügen';
                 break;
-            case 'add':
+            case 'edit':
                 $this->additionalData['title'] = 'SEO Tool: Backlink bearbeiten';
                 break;
             default:

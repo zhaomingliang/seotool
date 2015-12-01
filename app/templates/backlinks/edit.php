@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-fw fa-link"></i> Backlinks <small>hinzufügen</small>
+                    <i class="fa fa-fw fa-link"></i> Backlinks <small>bearbeiten</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
@@ -16,7 +16,7 @@
                         <i class="fa fa-fw fa-link"></i> <a href="/backlinks/index/">Backlinkübersicht</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-plus"></i> Backlink hinzufügen
+                        <i class="fa fa-edit"></i> Backlink bearbeiten
                     </li>
                 </ol>
             </div>
@@ -24,7 +24,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p>Dieser Bereich erlaubt es schnell und einfach Backlinks für dein Projekt anzulegen. Die Quelle (Verlinker) zeigt auf deine Seite (Verlinkter), zusätzlich kannst du die Art des Links sowie den Quellentyp als auch die Relation angeben. Diese Daten werden im Dashboard zusammengefasst, so dass es sich lohnt hier gewissenhaft zu sein.</p>
+            <p>Bearbeite hier das gewählte Keyword.</p>
         </div>
 
         <form role="form" id="backlinkUpdate">
