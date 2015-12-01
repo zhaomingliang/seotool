@@ -3,7 +3,6 @@
 <h2>Voraussetzungen</h2>
 <p>Wie auch schon bei der ersten Version: Es ist notwendig einen Cronjob per SSH auszuführen, d.h. ein normaler Webspace reicht in der Regel nicht aus. Ursächlich hierfür ist, dass das auszuführende Programm in Perl geschrieben ist und je nach Anzahl von Keywords bis zu 45 Minuten am Stück aktiv ist. So etwas lässt sich nur schwer mit PHP realisieren, man müsste in den Serverkonfigurationen einiges abändern (Max Exec Time etwa,...).</p>
 
-<br/>
 <strong>Ansonsten:</strong>
 <ul>
 <li>Server mit SSH-Zugang</li>
