@@ -49,7 +49,7 @@
 <p>Um alles mit Fakedaten zu testen, kann man diese über den Aufruf von http://eure.domain.de/mocker/ schnell und einfach generieren.</p>
 
 <h2>Fragen/Aufträge und Hilfe</h2>
-<p>Sind Fragen offen? Kann ich anderweitig helfen? Brauchst du einen Entwickler? Willst du mich engagieren, um das Tool samt Server aufzusetzen? Schreib mir eine <a href="http://damianschwyrz.de">E-Mail via damianschwyrz.de</a></p>
+<p>Sind Fragen offen? Kann ich anderweitig helfen? Brauchst du einen Entwickler? Willst du mich engagieren, um das Tool samt Server aufzusetzen? Schreib mir eine <a href="http://damianschwyrz.de">E-Mail via damianschwyrz.de</a>! </p>
 
 <h2>Screenshots - einige Eindrücke des Tools</h2>
 <img src="http://i.imgur.com/cDcseJ3.png">
