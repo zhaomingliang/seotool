@@ -18,6 +18,7 @@
 <li>Allgemeines Dashboard, das wichtige Kennzahlen anzeigt</li>
 <li>Keywordtracking für das eigene Projekt samt eingetragener Konkurrenz</li>
 <li>Gewinner-/Verlierer-/Chancen-Keywords</li>
+<li>Zu jedem Keyword lassen sich Suchvolumen eintragen</li>
 <li>Diagramme für Ranking, Konkurrenzvergleich, Verarbeitete Keywords</li>
 <li>Backlinkverwaltung - simple Möglichkeit gesetzte Backlinks zu managen</li>
 <li>Keine Begrenzung für Keywordanzahl oder Projektanzahl</li>
@@ -44,9 +45,11 @@
 <p><em>0 * * * * perl /var/www/pfad/zur/datei/web/cron/seotracker.pl</em></p>
 <h3>Schritt 8: Im Browser URL/Subdomain aufrufen</h3>
 <p>Mit den Standard-Login-Daten kann man sich einloggen und anfangen Projekte anzulegen. Die Keyworddaten werden ab dem nächsten Tag über den zuvor eingerichteten Cronjob aktualisiert.</p>
-
 <h3>Tipp: Fakedaten generieren</h3>
 <p>Um alles mit Fakedaten zu testen, kann man diese über den Aufruf von http://eure.domain.de/mocker/ schnell und einfach generieren.</p>
+
+<h2>Fragen/Aufträge und Hilfe</h2>
+<p>Sind Fragen offen? Kann ich anderweitig helfen? Brauchst du einen Entwickler? Willst du mich engagieren, um das Tool samt Server aufzusetzen? Schreib mir eine <a href="http://damianschwyrz.de">E-Mail via damianschwyrz.de</a></p>
 
 <h2>Screenshots - einige Eindrücke des Tools</h2>
 <img src="http://i.imgur.com/cDcseJ3.png">
