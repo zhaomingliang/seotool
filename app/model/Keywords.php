@@ -29,8 +29,7 @@ class Keywords
         $this->session  = new \RKA\Session();
 
         $this->additionalData['currentProjectNameData'] = new \App\CurrentProject_TopBar($this->db);
-
-        $this->additionalData['projectListData'] = new \App\ProjectList_TopBar($this->db);
+        $this->additionalData['projectListData']        = new \App\ProjectList_TopBar($this->db);
 
     }
 
