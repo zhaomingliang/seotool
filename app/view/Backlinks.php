@@ -86,7 +86,7 @@ class Backlinks
 
         foreach ($this->modelData['linkRelations'] as $linkRelations) {
             $selected = '';
-            if($linkRelations['backlinkRelationID'] == $this->modelData['backlinkData']['backlinkRelation']) {
+            if(isset($this->modelData['backlinkData']['backlinkRelation']) && $linkRelations['backlinkRelationID'] == $this->modelData['backlinkData']['backlinkRelation']) {
                 $selected = 'selected="selected"';
             }
             $html[] = '<option ' . $selected . ' value="' . $linkRelations['backlinkRelationID'] . '">' . $linkRelations['backlinkRelation'] . ' </option>';
@@ -102,7 +102,8 @@ class Backlinks
 
         foreach ($this->modelData['linkSourceTypes'] as $linkSourceType) {
             $selected = '';
-            if($linkSourceType['backlinkSourceID'] == $this->modelData['backlinkData']['backlinkSourceCategory']) {
+
+            if(isset($this->modelData['backlinkData']['backlinkSourceCategory']) && $linkSourceType['backlinkSourceID'] == $this->modelData['backlinkData']['backlinkSourceCategory']) {
                 $selected = 'selected="selected"';
             }
             $html[] = '<option ' . $selected . ' value="' . $linkSourceType['backlinkSourceID'] . '">' . $linkSourceType['backlinkSource'] . ' </option>';
@@ -118,7 +119,7 @@ class Backlinks
 
         foreach ($this->modelData['linkTypes'] as $linkType) {
             $selected = '';
-            if($linkType['backlinkCategoryID'] == $this->modelData['backlinkData']['backlinkCategory']) {
+            if(isset($this->modelData['backlinkData']['backlinkCategory']) && $linkType['backlinkCategoryID'] == $this->modelData['backlinkData']['backlinkCategory']) {
                 $selected = 'selected="selected"';
             }
             $html[] = '<option ' . $selected . ' value="' . $linkType['backlinkCategoryID'] . '">' . $linkType['backlinkCategory'] . ' </option>';
@@ -137,7 +138,7 @@ class Backlinks
             $selected   = '';
             $subproject = 'Konkurrent: ';
 
-            if(($this->modelData['backlinkData']['backlinkProject'] == $project['projectID'] ) || ($project['projectID'] == $this->modelData['projectData']['currentProjectParentID'])) {
+            if(( isset($this->modelData['backlinkData']['backlinkProject']) && ($this->modelData['backlinkData']['backlinkProject'] == $project['projectID']) ) || ($project['projectID'] == $this->modelData['projectData']['currentProjectParentID'])) {
                 $selected   = 'selected="selected"';
                 $subproject = '';
             }
