@@ -9,6 +9,7 @@
 <li>PHP 5.6</li>
 <li>MYSQL 5.5</li>
 <li>PERL 5.20</li>
+<li>Einige PERL-Module (u.a. LWP::Simple)</li>
 <li>Grundlegende Serveradmin-Kenntnisse</li>
 <li>Subdomain</li>
 </ul>
@@ -44,7 +45,11 @@
 <h3>Schritt 7: Cronjob einrichten</h3>
 <p>Der Cronjob muss folgendermaßen eingerichtet werden. Jede Stunde muss der Cronjob zur vollen Stunde gestartet werden. In der Regel loggt man sich auf den Server per SSH ein, und startet "crontab -e". Hier trägt etwas in der Form ein:</p>
 <p><em>0 * * * * perl /var/www/pfad/zur/datei/web/cron/seotracker.pl</em></p>
-<h3>Schritt 8: Im Browser URL/Subdomain aufrufen</h3>
+<h3>Schritt 8: PERL-Datei prüfen</h3>
+<p>Es werden einige spezielle PERL-Module benötigt, diese lassen sich leicht via CPAN installieren. Was benötigt wird, erfährt man, in dem man einfach mal die PERL-Datei im "install/"-Ordner startet: perl seotracker.pl</p>
+<p>Es sind Fehler zu erwarten, wie: "<em>Can't locate LWP/Simple.pm in @INC (you may need to install the LWP::Simple module)</em>"</p>
+<p>Die Lösung in der Konsole: <em>sudo perl -MCPAN -e'install "LWP::Simple"'</em></p>
+<h3>Schritt 9: Im Browser URL/Subdomain aufrufen</h3>
 <p>Mit den Standard-Login-Daten kann man sich einloggen und anfangen Projekte anzulegen. Die Keyworddaten werden ab dem nächsten Tag über den zuvor eingerichteten Cronjob aktualisiert.</p>
 <h3>Tipp: Fakedaten generieren</h3>
 <p>Um alles mit Fakedaten zu testen, kann man diese über den Aufruf von http://eure.domain.de/mocker/ schnell und einfach generieren.</p>
