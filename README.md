@@ -9,7 +9,16 @@
 <li>PHP 5.6</li>
 <li>MYSQL 5.5</li>
 <li>PERL 5.20</li>
+<li>Grundlegende Serveradmin-Kenntnisse</li>
+<li>Subdomain</li>
 </ul>
 
 <h2>Installationsanleitung</h2>
 <p>Ich bitte die folgende Anweisung exakt zu lesen und zu befolgen. Der Installationsprozess gestaltet sich hier nicht trifvial, wer das Tool nutzen will, aber nicht in der Lage ist es aufzusetzen, <strong>kann mich beauftragen</strong> einen kleinen Server mit dem Tool aufzusetzen. Hier reichen kleine vServer vollkommen aus.</p>
+
+<h3>Schritt 1: Subdomain einrichten</h3>
+<p>Das Tool funktioniert ausschließlich unter einer Subdomain. Legt diese mit einer eurer Domains an - eine TLD allgemein oder IP-Adresse wird ebenfalls funktionieren.</p>
+<h3>Schritt 2: Repo klonen oder herunterladen</h3>
+<p>Einfach alle Dateien, die man hier im Repo sieht an die entsprechende Stelle klonen bzw. das Paket herunterladen. Meist ist das sowas wie: /var/www/euredomain.de/web/</p>
+<h3>Schritt 3: htaccess/nginx anpassen</h3>
+<p>Das Tool wurde mit dem SLIM Framework 3 RC2 programmiert und entsprechend gilt die folgende Anleitung: Weiter zu <a href="http://www.slimframework.com/docs/start/web-servers.html" target="_blank">slimframework.com</a></p>
