@@ -33,6 +33,8 @@ class Keywords
             $this->viewData['selectedDate'] = $this->modelData['selectedDate'];
         }
 
+        $this->viewData['rankingLineJSData'] = '';
+
     }
 
     public function generateIntervalPicker($keywordID)
@@ -390,16 +392,21 @@ class Keywords
     private function markDeltainColor($deltaVal)
     {
         $pre = '';
+        $css = '';
+
         if($deltaVal > 0) {
             $css = 'class="pos"';
             $pre = '+';
         }
+
         if($deltaVal < 0) {
             $css = 'class="neg"';
         }
+
         if(is_null($deltaVal)) {
             $css = '';
         }
+
         return '<td ' . $css . '>' . $pre . $deltaVal . '</td>';
 
     }

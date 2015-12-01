@@ -79,7 +79,11 @@ class Keywords
 
     public function setChartInterval($chartInterval)
     {
-        $this->modelData['chartInterval'] = intval($chartInterval['interval']);
+        $this->modelData['chartInterval'] = 0;
+
+        if(isset($chartInterval['interval'])) {
+            $this->modelData['chartInterval'] = intval($chartInterval['interval']);
+        }
 
         $this->modelData['chartInterval'] = ($this->modelData['chartInterval'] > 0) ? $this->modelData['chartInterval'] : 30;
 
