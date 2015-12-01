@@ -1,0 +1,26 @@
+{
+    "name": "damianschwyrz/seotool",
+    "description": "SEO Tool v2",
+    "authors": [
+        {
+            "name": "Damian Schwyrz",
+            "email": "mail@damianschwyrz.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src/",
+            "App\\Model\\": "app/model/",
+            "App\\Controller\\": "app/controller/",
+            "App\\Ajax\\": "app/ajax/",
+            "App\\View\\": "app/view/"
+        }
+    },
+    "require": {
+        "slim/slim": "3.0.0-RC2",
+        "slim/php-view": "2.0.4",
+        "joshcam/mysqli-database-class": "v2.5",
+        "akrabat/rka-ip-address-middleware": "0.4",
+        "akrabat/rka-slim-session-middleware": "dev-master"
+    }
+}
