@@ -5,10 +5,11 @@
 
 <strong>Ansonsten:</strong>
 <ul>
-<li>Server mit SSH-Zugang</li>
+<li>Server mit SSH-Zugang (d.h. kein Webspace nicht geeignet)</li>
 <li>PHP 5.6</li>
 <li>MYSQL 5.5</li>
 <li>PERL 5.20</li>
 </ul>
 
 <h2>Installationsanleitung</h2>
+<p>Ich bitte die folgende Anweisung exakt zu lesen und zu befolgen. Der Installationsprozess gestaltet sich hier nicht trifvial, wer das Tool nutzen will, aber nicht in der Lage ist es aufzusetzen, <strong>kann mich beauftragen</strong> einen kleinen Server mit dem Tool aufzusetzen. Hier reichen kleine vServer vollkommen aus.</p>
