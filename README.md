@@ -22,3 +22,7 @@
 <p>Einfach alle Dateien, die man hier im Repo sieht an die entsprechende Stelle klonen bzw. das Paket herunterladen. Meist ist das sowas wie: /var/www/euredomain.de/web/</p>
 <h3>Schritt 3: htaccess/nginx anpassen</h3>
 <p>Das Tool wurde mit dem SLIM Framework 3 RC2 programmiert und entsprechend gilt die folgende Anleitung: Weiter zu <a href="http://www.slimframework.com/docs/start/web-servers.html" target="_blank">slimframework.com</a></p>
+<p><strong>WICHTIG:</strong> Der Dokumentenroot MUSS auf public/ zeigen. Das ist eben das Verzeichnis, das ihr über die Subdomain ansteuert. Alle wichtigen Dateien sind außerhalb dieses Ordners und somit nicht für den Nutzer via Browser erreichbar!</p>
+<h3>Schritt 4: Composer initialisieren und Abhängigkeiten installieren</h3>
+<p>Per SSH einloggen, in das Verzeichnis mit allen Dateien wechseln und mit "composer install" und anschließend "composer dump-autoload -o" alle Abhängigkeiten installieren lassen. Diese sind in der composer.json vermerkt. Das ist wichtig, ansonsten fehlen eben wichtige Komponenten für das Tool. Allgemeine Hinweise zur Verwendung von composer findet man unter <a href="https://getcomposer.org/" target="_blank">getcomposer.org</a></p>
+<h3>Schritt 5:</h3>
