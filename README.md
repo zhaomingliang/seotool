@@ -19,7 +19,7 @@
 <li>Keywordtracking für das eigene Projekt samt eingetragener Konkurrenz</li>
 <li>Gewinner-/Verlierer-/Chancen-Keywords</li>
 <li>Zu jedem Keyword lassen sich Suchvolumen eintragen</li>
-<li>Alle Tabellen lassen sich Durchsuchen und Sortieren</li>
+<li>Alle Tabellen lassen sich durchsuchen und sortieren</li>
 <li>Diagramme für Ranking, Konkurrenzvergleich, Verarbeitete Keywords</li>
 <li>Backlinkverwaltung - simple Möglichkeit gesetzte Backlinks zu managen</li>
 <li>Keine Begrenzung für Keywordanzahl oder Projektanzahl</li>
