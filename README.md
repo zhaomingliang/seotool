@@ -13,6 +13,16 @@
 <li>Subdomain</li>
 </ul>
 
+<h2>Funktionsumfang</h2>
+<ul>
+<li>Allgemeines Dashboard, das wichtige Kennzahlen anzeigt</li>
+<li>Keywordtracking für das eigene Projekt samt eingetragener Konkurrenz</li>
+<li>Gewinner-/Verlierer-/Chancen-Keywords</li>
+<li>Diagramme für Ranking, Konkurrenzvergleich, Verarbeitete Keywords</li>
+<li>Backlinkverwaltung - simple Möglichkeit gesetzte Backlinks zu managen</li>
+<li>Keine Begrenzung für Keywordanzahl oder Projektanzahl</li>
+</ul>
+
 <h2>Installationsanleitung</h2>
 <p>Ich bitte die folgende Anweisung exakt zu lesen und zu befolgen. Der Installationsprozess gestaltet sich hier nicht trifvial, wer das Tool nutzen will, aber nicht in der Lage ist es aufzusetzen, <strong>kann mich beauftragen</strong> einen kleinen Server mit dem Tool aufzusetzen. Hier reichen kleine vServer vollkommen aus.</p>
 
@@ -33,7 +43,13 @@
 <p>Der Cronjob muss folgendermaßen eingerichtet werden. Jede Stunde muss der Cronjob zur vollen Stunde gestartet werden. In der Regel loggt man sich auf den Server per SSH ein, und startet "crontab -e". Hier trägt etwas in der Form ein:</p>
 <p><em>0 * * * * perl /var/www/pfad/zur/datei/web/cron/seotracker.pl</em></p>
 <h3>Schritt 8: Im Browser URL/Subdomain aufrufen</h3>
-<p>Mit den Standard-Login-Daten kann man sich einloggen und anfangen Projekte anzulegen.</p>
+<p>Mit den Standard-Login-Daten kann man sich einloggen und anfangen Projekte anzulegen. Die Keyworddaten werden ab dem nächsten Tag über den zuvor eingerichteten Cronjob aktualisiert.</p>
 
 <h3>Tipp: Fakedaten generieren</h3>
 <p>Um alles mit Fakedaten zu testen, kann man diese über den Aufruf von http://eure.domain.de/mocker/ schnell und einfach generieren.</p>
+
+<h2>Screenshots - einige Eindrücke des Tools</h2>
+<img src="http://i.imgur.com/cDcseJ3.png">
+<img src="http://i.imgur.com/yIQuTXI.png">
+<img src="http://i.imgur.com/GJTjcFt.png">
+<img src="http://i.imgur.com/S8tTjD1.png">
