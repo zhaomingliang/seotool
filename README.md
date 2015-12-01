@@ -25,4 +25,15 @@
 <p><strong>WICHTIG:</strong> Der Dokumentenroot MUSS auf public/ zeigen. Das ist eben das Verzeichnis, das ihr über die Subdomain ansteuert. Alle wichtigen Dateien sind außerhalb dieses Ordners und somit nicht für den Nutzer via Browser erreichbar!</p>
 <h3>Schritt 4: Composer initialisieren und Abhängigkeiten installieren</h3>
 <p>Per SSH einloggen, in das Verzeichnis mit allen Dateien wechseln und mit "composer install" und anschließend "composer dump-autoload -o" alle Abhängigkeiten installieren lassen. Diese sind in der composer.json vermerkt. Das ist wichtig, ansonsten fehlen eben wichtige Komponenten für das Tool. Allgemeine Hinweise zur Verwendung von composer findet man unter <a href="https://getcomposer.org/" target="_blank">getcomposer.org</a></p>
-<h3>Schritt 5:</h3>
+<h3>Schritt 5: Einstellungen anpassen</h3>
+<p>In app/settings.php und install/seotracker.pl müssen die Zugangsdaten für die MySQL-Datenbank samt Datenbankname angepasst werden.</p>
+<h3>Schritt 6: Import des SQL-Dumps</h3>
+<p>In install/ befindet sich eine sql-Dump, der in die Datenbank importiert werden muss.</p>
+<h3>Schritt 7: Cronjob einrichten</h3>
+<p>Der Cronjob muss folgendermaßen eingerichtet werden. Jede Stunde muss der Cronjob zur vollen Stunde gestartet werden. In der Regel loggt man sich auf den Server per SSH ein, und startet "crontab -e". Hier trägt etwas in der Form ein:</p>
+<p><em>0 * * * * perl /var/www/pfad/zur/datei/web/cron/seotracker.pl</em></p>
+<h3>Schritt 8: Im Browser URL/Subdomain aufrufen</h3>
+<p>Mit den Standard-Login-Daten kann man sich einloggen und anfangen Projekte anzulegen.</p>
+
+<h3>Tipp: Fakedaten generieren</h3>
+<p>Um alles mit Fakedaten zu testen, kann man diese über den Aufruf von http://eure.domain.de/mocker/ schnell und einfach generieren.</p>
