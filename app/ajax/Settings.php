@@ -46,8 +46,8 @@ class Settings
 
         $this->db->where('optionName', 'cronjobHours');
         $this->db->update('settings', ['value' => $this->postArray['timing']]);
-        
-        $reorderKeywords = new \App\ReorderKeywords($this->db,$this->postArray['timing']);
+
+        $reorderKeywords = new \App\ReorderKeywords($this->db, $this->postArray['timing']);
         $reorderKeywords->start();
 
         $this->db->where('optionName', 'pauseStatic');
@@ -55,12 +55,12 @@ class Settings
 
         $this->db->where('optionName', 'pauseVariable');
         $this->db->update('settings', ['value' => $this->postArray['pause_variable']]);
-        
+
         $this->updateProjects();
-        
-        $this->db->where('projectID',$this->postArray['defaultProject']);
-        $this->db->update('projects',['projectDefault' => 1]);
-        
+
+        $this->db->where('projectID', $this->postArray['defaultProject']);
+        $this->db->update('projects', ['projectDefault' => 1]);
+
         $this->message = '<strong>Sehr gut!</strong> Einstellungen wurden aktualisiert.';
 
     }
@@ -98,7 +98,8 @@ class Settings
                     $tempTiming[] = intval($tValue);
                 }
             }
-            array_unique($tempTiming);
+
+            $tempTiming = array_unique($tempTiming, SORT_REGULAR);
 
             $this->postArray['timing'] = implode(',', $tempTiming);
         }
