@@ -29,7 +29,8 @@ class Keywords
         $this->session  = new \RKA\Session();
 
         $this->additionalData['currentProjectNameData'] = new \App\CurrentProject_TopBar($this->db);
-        $this->additionalData['projectListData']        = new \App\ProjectList_TopBar($this->db);
+
+        $this->additionalData['projectListData'] = new \App\ProjectList_TopBar($this->db);
 
     }
 
@@ -87,17 +88,23 @@ class Keywords
 
         $this->modelData['chartInterval'] = ($this->modelData['chartInterval'] > 0) ? $this->modelData['chartInterval'] : 30;
 
-        $this->modelData['lastDay'] = date('Y-m-j', strtotime('-' . ($this->modelData['chartInterval'] - 1) . ' day'));
+        $this->modelData['lastDay'] = date('Y-m-d', strtotime('-' . ($this->modelData['chartInterval'] - 1) . ' day'));
 
     }
 
     public function setSelectDate($getParams)
     {
         if(isset($getParams['date'])) {
-            $this->additionalData['currentDate'] = $getParams['date'];
+
+            if(preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $getParams['date'])) {
+                $this->additionalData['currentDate'] = $getParams['date'];
+            }
+            else {
+                $this->additionalData['currentDate'] = date('Y-m-d', strtotime('-0 day'));
+            }
         }
         else {
-            $this->additionalData['currentDate'] = date('Y-m-j', strtotime('-0 day'));
+            $this->additionalData['currentDate'] = date('Y-m-d', strtotime('-0 day'));
         }
 
     }
@@ -108,7 +115,7 @@ class Keywords
         $this->additionalData['selectedDate'] = [];
 
         while ($days >= 0) {
-            $thisDate = date('Y-m-j', strtotime('-' . $days . ' day'));
+            $thisDate = date('Y-m-d', strtotime('-' . $days . ' day'));
 
             $this->additionalData['selectedDate'][$days]['date'] = $thisDate;
 
@@ -138,7 +145,7 @@ class Keywords
     {
 
         $lastDaysEnd = 4;
-        $lastDay     = date('Y-m-j', strtotime('-' . $lastDaysEnd . ' day'));
+        $lastDay     = date('Y-m-d', strtotime('-' . $lastDaysEnd . ' day'));
         $query       = [];
 
         $query[] = "SELECT k1.keywordID, k1.keywordName, k1.keywordTraffic, ";
@@ -153,8 +160,8 @@ class Keywords
 
         while ($lastDays <= $lastDaysEnd) {
 
-            $today     = date('Y-m-j', strtotime('-' . $lastDays . ' day'));
-            $yesterday = date('Y-m-j', strtotime('-' . ($lastDays + 1) . ' day'));
+            $today     = date('Y-m-d', strtotime('-' . $lastDays . ' day'));
+            $yesterday = date('Y-m-d', strtotime('-' . ($lastDays + 1) . ' day'));
 
             $midQuery[] = "(SELECT k3.rankingPosition FROM st_rankings k3 WHERE k3.keywordID=k1.keywordID AND k3.projectID=" . $this->projectData['currentProjectID'] . " AND k3.rankingAddedDay = '" . $today . "') AS tag" . $nameCounter;
             $midQuery[] = "(SELECT k3.rankingURL FROM st_rankings k3 WHERE k3.keywordID=k1.keywordID AND k3.projectID=" . $this->projectData['currentProjectID'] . " AND k3.rankingAddedDay = '" . $today . "') AS url" . $nameCounter;

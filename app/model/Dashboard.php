@@ -64,7 +64,7 @@ class Dashboard
         $queryM = [];
 
         while ($lastDaysIterator <= ($lastDays)) {
-            $day = date('Y-m-j', strtotime('-' . $lastDaysIteratorDayVal . ' day'));
+            $day = date('Y-m-d', strtotime('-' . $lastDaysIteratorDayVal . ' day'));
 
             $queryM[] = "(SELECT '" . $day . "') as dayNr" . $lastDaysIterator;
             $queryM[] = "(SELECT ROUND(AVG(ifNull(rankingPosition,100)),2) FROM st_rankings WHERE projectID=" . $this->projectData['currentProjectID'] . " AND rankingAddedDay='" . $day . "') as dayIndex" . $lastDaysIterator;
@@ -219,8 +219,8 @@ class Dashboard
             $this->additionalData['currentDate'] = $getParams['date'];
         }
         else {
-            $this->additionalData['currentDate'] = date('Y-m-j', strtotime('-0 day'));
-            $this->additionalData['yesterday']   = date('Y-m-j', strtotime('-1 day'));
+            $this->additionalData['currentDate'] = date('Y-m-d', strtotime('-0 day'));
+            $this->additionalData['yesterday']   = date('Y-m-d', strtotime('-1 day'));
         }
 
     }

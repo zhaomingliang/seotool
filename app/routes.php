@@ -197,8 +197,8 @@ $app->get('/mocker/', function() {
                     'projectID'       => $projectsID,
                     'rankingPosition' => $mockPosition,
                     'rankingURL'      => 'http://www.' . $kwID . '-' . $mockPosition . '-' . $projectsID . '-1.de/',
-                    'rankingAdded'    => date('Y-m-j G:i:s', strtotime('-' . $days . ' day')),
-                    'rankingAddedDay' => date('Y-m-j', strtotime('-' . $days . ' day')),
+                    'rankingAdded'    => date('Y-m-d G:i:s', strtotime('-' . $days . ' day')),
+                    'rankingAddedDay' => date('Y-m-d', strtotime('-' . $days . ' day')),
                 ]);
             }
         }
@@ -275,8 +275,8 @@ $app->get('/mocker/', function() {
                     'projectID'       => $projectsID,
                     'rankingPosition' => $mockPosition,
                     'rankingURL'      => 'http://www.' . $kwID . '-' . $mockPosition . '-' . $projectsID . '-1.de/',
-                    'rankingAdded'    => date('Y-m-j G:i:s', strtotime('-' . $days . ' day')),
-                    'rankingAddedDay' => date('Y-m-j', strtotime('-' . $days . ' day')),
+                    'rankingAdded'    => date('Y-m-d G:i:s', strtotime('-' . $days . ' day')),
+                    'rankingAddedDay' => date('Y-m-d', strtotime('-' . $days . ' day')),
                 ]);
             }
         }

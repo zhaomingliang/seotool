@@ -77,7 +77,7 @@ class Summary
     {
 
         $this->db->where('projectID', $this->projectData['currentProjectID']);
-        $this->db->where('rankingAddedDay', date('Y-m-j', strtotime('-' . ($this->chartInterval['interval'] - 1) . ' day')), '>=');
+        $this->db->where('rankingAddedDay', date('Y-m-d', strtotime('-' . ($this->chartInterval['interval'] - 1) . ' day')), '>=');
         $this->db->groupBy('rankingAddedDay');
         $this->db->orderBy('rankingAddedDay', 'ASC');
 
@@ -99,7 +99,7 @@ class Summary
         while ($dayIterator <= $this->chartInterval['interval']) {
 
 
-            $day = date('Y-m-j', strtotime('-' . ($dayInterval - 1) . ' day'));
+            $day = date('Y-m-d', strtotime('-' . ($dayInterval - 1) . ' day'));
 
             $queryM[] = "'$day' as d$nameIterator";
             $queryM[] = "(SELECT ROUND(AVG(ifNull(rankingPosition,100)),2) FROM st_rankings WHERE projectID=r.projectID AND rankingAddedDay='$day') as r$nameIterator";
@@ -130,7 +130,7 @@ class Summary
         while ($dayIterator <= $this->chartInterval['interval']) {
 
 
-            $day = date('Y-m-j', strtotime('-' . ($dayInterval - 1) . ' day'));
+            $day = date('Y-m-d', strtotime('-' . ($dayInterval - 1) . ' day'));
 
             $queryM[] = "(SELECT '$day') as d$nameIterator";
             $queryM[] = "(SELECT ROUND(AVG(ifNull(rankingPosition,100)),2) FROM st_rankings WHERE projectID=r.projectID AND rankingAddedDay='$day') as r$nameIterator";
@@ -152,17 +152,20 @@ class Summary
 
         if(isset($getParams['last'])) {
 
+            if(intval($getParams['last']) <= 0) {
+                $getParams['last'] = 1;
+            }
             $this->chartInterval = [
                 'interval' => intval($getParams['last']),
-                'min'      => date('Y-m-j', strtotime('-' . intval($getParams['last']) . ' day')),
-                'max'      => date('Y-m-j', strtotime('-0 day')),
+                'min'      => date('Y-m-d', strtotime('-' . intval($getParams['last']) . ' day')),
+                'max'      => date('Y-m-d', strtotime('-0 day')),
             ];
         }
         else {
             $this->chartInterval = [
                 'interval' => '7',
-                'min'      => date('Y-m-j', strtotime('-7 day')),
-                'max'      => date('Y-m-j', strtotime('-0 day')),
+                'min'      => date('Y-m-d', strtotime('-7 day')),
+                'max'      => date('Y-m-d', strtotime('-0 day')),
             ];
         }
 
