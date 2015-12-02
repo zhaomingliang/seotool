@@ -89,11 +89,11 @@
                     </li>
                 </ul>
             </li>
-            <!--<li>
-                <a href="/note/index/"><i class="fa fa-fw fa-pencil-square-o"></i> Notizen</a>
-            </li>-->
             <li>
                 <a href="/settings/index/"><i class="fa fa-fw fa-wrench"></i> Einstellungen</a>
+            </li>
+            <li>
+                <a href="/system/index/"><i class="fa fa-fw fa-exclamation"></i> System</a>
             </li>
 
         </ul>

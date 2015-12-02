@@ -21,7 +21,7 @@ $app->get('/logout/', function ($request, $response) {
     return $response->withStatus(301)->withHeader('Location', '/login/');
 })->add(new App\Logout());
 
-$app->get('/{class:dashboard|settings}/index/', function ($request, $response, $args) {
+$app->get('/{class:dashboard|settings|system}/index/', function ($request, $response, $args) {
 
     $className  = 'App\\Controller\\' . ucfirst($args['class']);
     $controller = new $className($request, $response, $this->db, $this->renderer);
@@ -167,7 +167,7 @@ $app->get('/mocker/', function() {
         $this->db->insert('keywords', [
             'keywordID'       => $startID,
             'keywordName'     => $pattern . $startID,
-            'keywordTraffic' => rand(100,2000),
+            'keywordTraffic'  => rand(100, 2000),
             'parentProjectID' => 1,
         ]);
 
@@ -246,7 +246,7 @@ $app->get('/mocker/', function() {
         $this->db->insert('keywords', [
             'keywordID'       => $startID,
             'keywordName'     => $pattern . $startID,
-            'keywordTraffic' => rand(100,2000),
+            'keywordTraffic'  => rand(100, 2000),
             'parentProjectID' => 5,
         ]);
 

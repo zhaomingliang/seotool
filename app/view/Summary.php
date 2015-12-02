@@ -126,12 +126,12 @@ class Summary
     private function prepareCompetitionRankingDataForLineChart()
     {
         $this->compIdentifiers = [];
-        
+
         $eachDataAllProjects = [];
         foreach ($this->modelData['queryresultData'] as $compID => $compData) {
             $iteratorPos = 1;
-            
-            
+
+
             $this->compIdentifiers['comp' . $compID] = $compID;
 
             while ($iteratorPos <= $this->modelData['timeData']['interval']) {
@@ -241,8 +241,12 @@ class Summary
         $html = [];
 
         $iteratorPos = 1;
+        $days        = 0;
 
-        $days = (count($this->modelData['queryresultData'][0]) - 1) / 2;
+        if(isset($this->modelData['queryresultData'][0])) {
+            $days = (count($this->modelData['queryresultData'][0]) - 1) / 2;
+        }
+
 
         while ($iteratorPos <= $days) {
 

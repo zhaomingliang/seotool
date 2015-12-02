@@ -1,7 +1,7 @@
 <?php
 
-define('USER', 'admin');
-define('PASS', '123456');
+define('USER', 'admin'); #bitte anpassen
+define('PASS', '123456'); #bitte anpassen
 
 return [
     'settings' => [
