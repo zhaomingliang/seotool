@@ -38,7 +38,7 @@
 <p>Das Tool wurde mit dem SLIM Framework 3 RC2 programmiert und entsprechend gilt die folgende Anleitung: Weiter zu <a href="http://www.slimframework.com/docs/start/web-servers.html" target="_blank">slimframework.com</a></p>
 <p><strong>WICHTIG:</strong> Der Dokumentenroot MUSS auf public/ zeigen. Das ist eben das Verzeichnis, das ihr über die Subdomain ansteuert. Alle wichtigen Dateien sind außerhalb dieses Ordners und somit nicht für den Nutzer via Browser erreichbar!</p>
 <h3>Schritt 4: Composer initialisieren und Abhängigkeiten installieren</h3>
-<p>Per SSH einloggen, in das Verzeichnis mit allen Dateien wechseln und mit "composer install" und anschließend "composer dump-autoload -o" alle Abhängigkeiten installieren lassen. Diese sind in der composer.json vermerkt. Das ist wichtig, ansonsten fehlen eben wichtige Komponenten für das Tool. Allgemeine Hinweise zur Verwendung von composer findet man unter <a href="https://getcomposer.org/" target="_blank">getcomposer.org</a></p>
+<p>Per SSH einloggen, in das Verzeichnis mit allen Dateien wechseln und mit "<strong>composer install</strong>" und anschließend "<strong>composer dump-autoload -o</strong>" alle Abhängigkeiten installieren lassen. Diese sind in der composer.json vermerkt. Das ist wichtig, ansonsten fehlen eben wichtige Komponenten für das Tool. Allgemeine Hinweise zur Verwendung von composer findet man unter <a href="https://getcomposer.org/" target="_blank">getcomposer.org</a></p>
 <h3>Schritt 5: Einstellungen anpassen</h3>
 <p>In app/settings.php und install/seotracker.pl müssen die Zugangsdaten für die MySQL-Datenbank samt Datenbankname angepasst werden.</p>
 <h3>Schritt 6: Import des SQL-Dumps</h3>
