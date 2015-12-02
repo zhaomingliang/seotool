@@ -53,7 +53,7 @@
 <h3>Schritt 9: Im Browser URL/Subdomain aufrufen</h3>
 <p>Mit den Standard-Login-Daten kann man sich einloggen und anfangen Projekte anzulegen. Die Keyworddaten werden ab dem nächsten Tag über den zuvor eingerichteten Cronjob aktualisiert.</p>
 <h3>Tipp: Fakedaten generieren</h3>
-<p>Um alles mit Fakedaten zu testen, kann man diese über den Aufruf von http://eure.domain.de/mocker/ schnell und einfach generieren.</p>
+<p>Um alles mit Fakedaten zu testen, kann man diese über den Aufruf von http://eure.domain.de/mocker/ schnell und einfach generieren. Hierzu muss man sich zuvor allerdings einloggen. Der Grund ist einfach, ist der Zugang frei, könnte jeder, der weiß, wo euer Tool liegt, eure Daten löschen und mit gemockten Daten ersetzen. Wers nicht braucht, kann den betreffenden Teil aus app/routes.php löschen!</p>
 
 <h2>Fragen/Aufträge und Hilfe</h2>
 <p>Sind Fragen offen? Kann ich anderweitig helfen? Brauchst du einen Entwickler? Willst du mich engagieren, um das Tool samt Server aufzusetzen? Schreib mir eine <a href="http://damianschwyrz.de">E-Mail via damianschwyrz.de</a>! </p>
