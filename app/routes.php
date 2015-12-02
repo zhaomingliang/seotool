@@ -309,7 +309,10 @@ $app->get('/mocker/', function() {
         }
     }
 
+    $c = new \App\ReorderKeywords($this->db, '0,1,2,3,4,5,6,7,8,9');
+    $c->start();
+
 
     echo 'Done';
     echo '<br />';
-});
+})->add(new App\CheckAuth());
