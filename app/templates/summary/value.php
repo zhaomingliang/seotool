@@ -94,8 +94,8 @@
                                             <tr>
                                                 <td>Beispiel KW 4</td>
                                                 <td>50</td>
-                                                <td>NULL (= 125)</td>
-                                                <td>6250</td>
+                                                <td>NULL (= 150)</td>
+                                                <td>7500</td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
@@ -103,13 +103,13 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                                <td><strong>Summe:</strong><br />11650</td>
+                                                <td><strong>Summe:</strong><br />12900</td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                                <td><strong>Durchschnitt:</strong><br />11650 / Anzahl Keywords<br />= 2912,5</td>
+                                                <td><strong>Durchschnitt:</strong><br />12900 / Anzahl Keywords<br />= 3225</td>
                                             </tr>
                                         </tfoot>
                                     </table>
