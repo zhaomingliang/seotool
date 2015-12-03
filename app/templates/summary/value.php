@@ -20,7 +20,7 @@
         </div>
         <!-- /.row -->
 
-        <div class="well"><strong>Je kleiner, desto besser!</strong>. Die Werte ergeben sich aus dem Produkt aus Position und Traffic für jedes Keyword. Davon wird der Durchschnitt gebildet. Der Rankingwert zieht in den Vergleich noch das Trafficvolumen mit ein. Wurde für ein Keyword kein Ranming gefunden ( = NULL) wird es als sehr schlecht ( = Positon 150) angenommen. Ein konkretes Rechenbeispiel findet sich unten.</div>
+        <div class="well"><strong>Je kleiner, desto besser!</strong>. Die Werte ergeben sich aus dem Produkt aus Position und Traffic für jedes Keyword. Davon wird der Durchschnitt gebildet. Der Rankingwert zieht in den Vergleich noch das Trafficvolumen mit ein. Wurde für ein Keyword kein Ranking gefunden ( = NULL) wird es als sehr schlecht ( = Positon 150) angenommen. Ein konkretes Rechenbeispiel findet sich unten.</div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
