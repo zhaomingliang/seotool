@@ -29,7 +29,7 @@ $app->get('/{class:dashboard|settings|system}/index/', function ($request, $resp
 })->add(new App\CheckAuth());
 
 
-$app->get('/summary/{action:ranking|competition|keywords}/', function ($request, $response, $args) {
+$app->get('/summary/{action:ranking|competition|keywords|value}/', function ($request, $response, $args) {
 
     $controller = new App\Controller\Summary($request, $response, $this->db, $this->renderer);
     $controller->$args['action']();

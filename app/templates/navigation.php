@@ -45,6 +45,9 @@
                         <a href="/summary/competition/">Konkurrenzindex</a>
                     </li>
                     <li>
+                        <a href="/summary/value/">Rankingwert</a>
+                    </li>
+                    <li>
                         <a href="/summary/keywords/">Verarbeitete Keywords</a>
                     </li>
                 </ul>

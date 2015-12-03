@@ -32,6 +32,85 @@ class Summary
 
     }
 
+    public function setTableContentForValue()
+    {
+        $html = [];
+
+        foreach ($this->modelData['queryresultData'] as $valueData) {
+            $html[] = '<tr>';
+            $html[] = '<td>' . \App\Tool::removeSchemeFromURL($valueData['projectURL']) . '</td>';
+            $html[] = $this->markBestValuePerDay($valueData);
+            $html[] = '</tr>';
+        }
+
+        $this->viewData['valueTable'] = implode("\n", $html);
+
+    }
+
+    private function markBestValuePerDay($valueData)
+    {
+
+        $css = [
+            0 => '',
+            1 => '',
+            2 => '',
+            3 => '',
+            4 => '',
+            5 => '',
+        ];
+
+        $valueData['val00'] = $valueData['val0'];
+        $valueData['val01'] = $valueData['val1'];
+        $valueData['val02'] = $valueData['val2'];
+        $valueData['val03'] = $valueData['val3'];
+        $valueData['val04'] = $valueData['val4'];
+        $valueData['val05'] = $valueData['val5'];
+
+
+
+        if(is_null($valueData['val0']))
+            $valueData['val00'] = 9999999999999999999; // big fake nr
+        if(is_null($valueData['val1']))
+            $valueData['val01'] = 9999999999999999999; // big fake nr
+        if(is_null($valueData['val2']))
+            $valueData['val02'] = 9999999999999999999; // big fake nr
+        if(is_null($valueData['val3']))
+            $valueData['val03'] = 9999999999999999999; // big fake nr
+        if(is_null($valueData['val4']))
+            $valueData['val04'] = 9999999999999999999; // big fake nr
+        if(is_null($valueData['val5']))
+            $valueData['val05'] = 9999999999999999999; // big fake nr
+
+
+        $positions = [
+            0 => $valueData['val00'],
+            1 => $valueData['val01'],
+            2 => $valueData['val02'],
+            3 => $valueData['val03'],
+            4 => $valueData['val04'],
+            5 => $valueData['val05'],
+        ];
+
+        $keyOfMin = array_keys($positions, min($positions))[0];
+
+
+        if($positions[$keyOfMin] < 9999999999999999999) {
+            $css[$keyOfMin] = 'class="bestPos"';
+        }
+
+        $html = [];
+
+        $html[] = '<td ' . $css[0] . '>' . $valueData['val0'] . '</td>';
+        $html[] = '<td ' . $css[1] . '>' . $valueData['val1'] . '</td>';
+        $html[] = '<td ' . $css[2] . '>' . $valueData['val2'] . '</td>';
+        $html[] = '<td ' . $css[3] . '>' . $valueData['val3'] . '</td>';
+        $html[] = '<td ' . $css[4] . '>' . $valueData['val4'] . '</td>';
+        $html[] = '<td ' . $css[5] . '>' . $valueData['val5'] . '</td>';
+
+        return implode("\n", $html);
+
+    }
+
     public function generateTrackedKeywordJSData()
     {
         $lineChart = new \App\LineChart();

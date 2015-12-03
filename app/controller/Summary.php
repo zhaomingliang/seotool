@@ -28,6 +28,22 @@ class Summary
 
     }
 
+    public function value()
+    {
+
+        $model = new \App\Model\Summary($this->request, $this->response, $this->db);
+        $model->setTitle('value');
+        $model->setProjectData();
+        $model->getValueRankings();
+        $model->sendQueryToDB();
+
+        $view = new \App\View\Summary($this->request, $this->response, $this->renderer, $model->getModelData());
+        $view->loadProjectData();
+        $view->setTableContentForValue();
+        $view->create('value');
+
+    }
+
     public function ranking()
     {
 

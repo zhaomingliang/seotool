@@ -15,6 +15,9 @@
 <script src="/js/raphael.min.js"></script>
 <script src="/js/morris.min.js"></script>
 
+<script src="/js/sorttable.js"></script>
+
+
 <script>
 <?php echo $rankingLineJSData;?>
 

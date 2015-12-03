@@ -38,6 +38,9 @@ class Summary
             case 'ranking':
                 $this->additionalData['title'] = 'SEO Tool: Ranking-Zusammenfassung';
                 break;
+            case 'value':
+                $this->additionalData['title'] = 'SEO Tool: Ranking-Value der Konkurrenten';
+                break;
             case 'keywords':
                 $this->additionalData['title'] = 'SEO Tool: Verarbeitete Keywords';
                 break;
@@ -45,6 +48,42 @@ class Summary
                 $this->additionalData['title'] = 'SEO Tool: Konkurrenz-Zusammenfassung';
                 break;
         }
+
+    }
+
+    public function getValueRankings()
+    {
+
+        $query   = [];
+        $query[] = 'SELECT p.projectID,p.projectURL,';
+
+        $posIfNotFound = 150;
+
+        //heute
+        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(0) . "') as val0,";
+        //gestern
+        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(1) . "') as val1,";
+        //vor 7 Tagen
+        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(6) . "') as val2,";
+        // vor 30 Tagen
+        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(29) . "') as val3,";
+        // vor 60 Tagen
+        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(59) . "') as val4,";
+        // vor 180 Tagen
+        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,1)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(179) . "') as val5";
+        $query[] = 'FROM st_projects p WHERE p.parentProjectID=' . $this->projectData['currentProjectParentID'] . ' ORDER BY val0 ASC';
+
+        $this->query = implode(" ", $query);
+
+    }
+
+    private function generateStaticDate($dayCounter, $format = 'Y-m-d')
+    {
+
+        if($dayCounter < 0)
+            $dayCounter = 0;
+
+        return date($format, strtotime('-' . $dayCounter . ' day'));
 
     }
 
