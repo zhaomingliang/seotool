@@ -221,7 +221,7 @@ class Keywords
     public function setInformation()
     {
         if(isset($this->modelData['projectData']['currentProjectID']) && $this->modelData['projectData']['currentProjectID'] > 0) {
-            $this->viewData['addInformation'] = 'Du bist aktuell dabei für das <strong>Hauptprojekt</strong> (inklusive aller Konkurrenten) neue Keywords anzulegen. Ein nachträglcihes Ändern der Keywords ist nicht möglich, prüfe daher, ob alles richtig geschrieben wurde. Die Keywords kannst du einfach untereinander reinschreiben und abspeichern.';
+            $this->viewData['addInformation'] = 'Du bist aktuell dabei für das <strong>Hauptprojekt</strong> (inklusive aller Konkurrenten) neue Keywords anzulegen. Ein nachträgliches Ändern der Keywords ist zwar möglich, prüfe trotzdem, ob alles richtig geschrieben wurde. Die Keywords kannst du einfach untereinander reinschreiben und abspeichern.';
         }
         else {
             $this->viewData['addInformation'] = '<strong>Achtung:</strong> Offenbar hast du noch kein Projekt als AKTIV gesetzt. Das Tool wüsste nicht, welchem Hauptprojekt es die neuen Keywords zuordnen soll. Bitte wähl oben rechts eines der Projekte und lade die Seite neu!';
