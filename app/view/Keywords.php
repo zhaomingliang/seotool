@@ -140,10 +140,10 @@ class Keywords
 
             $html[] = '<tr>';
             $html[] = '<td>' . $rankingValue['keywordID'] . '</td>';
-            $html[] = '<td class="keywordname"><strong>' . $rankingValue['keywordName'] . '</strong></td>';
+            $html[] = '<td class="keywordname"><strong>' . $rankingValue['keywordName'] . '</strong> <a href="https://www.google.de/search?oe=utf-8&pws=0&complete=0&hl=de&num=100&q=' . urlencode($rankingValue['keywordName']) . '" target="_blank"><i class="fa fa-link"></i></a></td>';
             $html[] = '<td>' . $rankingValue['keywordTraffic'] . '</td>';
             $html[] = $this->markChancesBestWorst($rankingValue);
-            $html[] = '<td>' . $rankingValue['rankingURL'] . '</td>';
+            $html[] = '<td>' . $rankingValue['rankingURL'] . ' <a href="' . $rankingValue['rankingURL'] . '" target="_blank"><i class="fa fa-link"></i></a></td>';
             $html[] = '</tr>';
         }
 
@@ -251,7 +251,7 @@ class Keywords
 
             $html[] = '<tr>';
             $html[] = '<td>' . $rankingValue['keywordID'] . '</td>';
-            $html[] = '<td class="keywordname"><strong>' . $rankingValue['keywordName'] . '</strong></td>';
+            $html[] = '<td class="keywordname"><strong>' . $rankingValue['keywordName'] . '</strong> <a href="https://www.google.de/search?oe=utf-8&pws=0&complete=0&hl=de&num=100&q=' . urlencode($rankingValue['keywordName']) . '" target="_blank"><i class="fa fa-link"></i></a></td>';
             $html[] = '<td>' . $rankingValue['keywordTraffic'] . '</td>';
             $html[] = $this->markBestCompetitor($rankingValue);
 
@@ -316,7 +316,7 @@ class Keywords
         foreach ($this->modelData['rankingData'] as $rankingKey => $rankingValue) {
             $html[] = '<tr class="k' . $rankingValue['keywordID'] . '">';
             $html[] = '<td>' . $rankingValue['keywordID'] . '</td>';
-            $html[] = '<td class="keywordname"><strong>' . $rankingValue['keywordName'] . '</strong></td>';
+            $html[] = '<td class="keywordname"><strong>' . $rankingValue['keywordName'] . '</strong> <a href="https://www.google.de/search?oe=utf-8&pws=0&complete=0&hl=de&num=100&q=' . urlencode($rankingValue['keywordName']) . '" target="_blank"><i class="fa fa-link"></i></a></td>';
             $html[] = '<td>' . $rankingValue['keywordTraffic'] . '</td>';
             $html[] = '<td>' . $rankingValue['updated'] . '</td>';
             $html[] = '<td class="tblBtn"><a href="/keywords/chart/' . $rankingValue['keywordID'] . '/"><i class="fa fa-area-chart"></i></a></td>';
