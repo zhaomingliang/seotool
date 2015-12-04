@@ -25,6 +25,9 @@
 <li>Diagramme für Ranking, Konkurrenzvergleich, Verarbeitete Keywords</li>
 <li>Backlinkverwaltung - simple Möglichkeit gesetzte Backlinks zu managen</li>
 <li>Keine Begrenzung für Keywordanzahl oder Projektanzahl</li>
+<li>Jedes Keyword kann manuell mit dem SuVo ergänzt werden</li>
+<li>Ist SuVo eingetragen, lässt sich der Rankingwert berechnen</li>
+<li>Systemstatus und Tipps</li>
 </ul>
 
 <h2>Installationsanleitung</h2>
