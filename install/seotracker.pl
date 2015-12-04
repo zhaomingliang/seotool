@@ -145,7 +145,9 @@ sub getGoogleResponse
     return @requestResultForKeyword;
 
     } else {
-        print "Probleme beim fetchen des Contents von Google.de\n";
+        print "Request was not successful\n";
+        print "HTTP-Status: ".$response->status_line."\n";
+        print "Reasons: Google blocked your crawler, IP on some kind of blacklist,...\n";
     }
 
 }
