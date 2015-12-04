@@ -140,9 +140,11 @@ sub getGoogleResponse
     if ($response->is_success)
     {
 
-    my @requestResultForKeyword = $response->content =~ /<(div|li) class=\"g\"(.+?)<\/(div|li)>/gi;
+        if( $debug eq 1) { print 'HTTP-Status: '.$response->status_line."\n"; }
 
-    return @requestResultForKeyword;
+        my @requestResultForKeyword = $response->content =~ /<(div|li) class=\"g\"(.+?)<\/(div|li)>/gi;
+
+        return @requestResultForKeyword;
 
     } else {
         print "Request was not successful\n";
