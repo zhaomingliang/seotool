@@ -41,6 +41,13 @@ class System
 
     }
 
+    public function getLoggingData()
+    {
+        $this->db->orderBy('logID', 'DESC');
+        $this->modelData['logData'] = $this->db->get('logs', 25, 'logTime,REPLACE(logMessage,\'\n\',\'<br />\') AS logMessage');
+
+    }
+
     public function getKeywordUpdateInfo()
     {
         $this->db->groupBy('keywordUpdateHour');
@@ -51,6 +58,9 @@ class System
     public function setTitle($page)
     {
         switch ($page) {
+            case 'logging':
+                $this->additionalData['title'] = 'SEO Tool: Logging';
+                break;
             default:
                 $this->additionalData['title'] = 'SEO Tool: Systemstatus';
         }

@@ -19,6 +19,7 @@ use warnings;
 
 ## Settings ##
 my $debug    = 0; ## 1: prints debug information, 0: no output
+my $dblog    = 1; ## 1: saves only important messages in db, 0: no database logging at all
 my $active   = 1; ## 1: normale usage; 0: use for debug, no google request, no extract, no db save
 
 ## Database settings ##
@@ -112,6 +113,9 @@ while($query_handle->fetch())
 
 }
 
+## Save stop-information in logs
+if( $dblog eq 1 ) { saveLog("Process finished successfully. Started: ".get_time('c_date')." ".get_time('hour').":00:00"); }
+
 ## Close mysql database connection ##
 $query_handle->finish();
 $connect->disconnect();
@@ -147,9 +151,9 @@ sub getGoogleResponse
         return @requestResultForKeyword;
 
     } else {
-        print "Request was not successful\n";
-        print "HTTP-Status: ".$response->status_line."\n";
-        print "Reasons: Google blocked your crawler, IP on some kind of blacklist,...\n";
+        $message = "Request was not successful\n"."HTTP-Status: ".$response->status_line."\n"."Reasons: Google blocked your crawler, IP on some kind of blacklist,...\n";
+        if( $debug eq 1) { print $message; }
+        if( $dblog eq 1 ) { saveLog($message); }
     }
 
 }
@@ -322,5 +326,21 @@ sub get_time
      die "get_Time() -> Unknown or no argument given\n";
 
     }
+
+}
+
+## Method:      saveLog
+## Description: Saves log in database
+## Input:       (string)     message
+
+sub saveLog
+{
+
+    my $message =   $connect->quote($_[0]);
+
+    $insert = "INSERT INTO st_logs (logMessage) VALUES ($message)";
+    $insert_handle = $connect->prepare($insert);
+    $insert_handle->execute() || dberror ("Error at saveDB insert: $DBI::errstr");
+    $insert_handle->finish();
 
 }

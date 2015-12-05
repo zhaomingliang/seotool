@@ -93,11 +93,20 @@
                 </ul>
             </li>
             <li>
-                <a href="/settings/index/"><i class="fa fa-fw fa-wrench"></i> Einstellungen</a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#system"><i class="fa fa-fw fa-wrench"></i> System <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="system" class="collapse">
+                    <li>
+                        <a href="/settings/index/">Einstellungen</a>
+                    </li>
+                    <li>
+                        <a href="/system/index/">Status</a>
+                    </li>
+                    <li>
+                        <a href="/system/logging/">Logging</a>
+                    </li>
+                </ul>
             </li>
-            <li>
-                <a href="/system/index/"><i class="fa fa-fw fa-exclamation"></i> System</a>
-            </li>
+
 
         </ul>
     </div>

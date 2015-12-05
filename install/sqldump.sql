@@ -214,6 +214,24 @@ INSERT INTO `st_settings` (`optionName`, `value`) VALUES
 ('pauseStatic', '60'),
 ('pauseVariable', '30');
 
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `st_logs`
+--
+
+CREATE TABLE IF NOT EXISTS `st_logs` (
+  `logID` int(11) NOT NULL AUTO_INCREMENT,
+  `logTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `logMessage` text NOT NULL,
+  PRIMARY KEY (`logID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 --
 -- Constraints der exportierten Tabellen
 --

@@ -21,11 +21,17 @@ $app->get('/logout/', function ($request, $response) {
     return $response->withStatus(301)->withHeader('Location', '/login/');
 })->add(new App\Logout());
 
-$app->get('/{class:dashboard|settings|system}/index/', function ($request, $response, $args) {
+$app->get('/{class:dashboard|settings}/index/', function ($request, $response, $args) {
 
     $className  = 'App\\Controller\\' . ucfirst($args['class']);
     $controller = new $className($request, $response, $this->db, $this->renderer);
     $controller->index();
+})->add(new App\CheckAuth());
+
+$app->get('/system/{action:index|logging}/', function ($request, $response, $args) {
+
+    $controller = new App\Controller\System($request, $response, $this->db, $this->renderer);
+    $controller->$args['action']();
 })->add(new App\CheckAuth());
 
 

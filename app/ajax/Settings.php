@@ -101,6 +101,7 @@ class Settings
 
             $tempTiming = array_unique($tempTiming, SORT_REGULAR);
 
+
             $this->postArray['timing'] = implode(',', $tempTiming);
         }
         else {

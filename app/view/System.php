@@ -32,6 +32,22 @@ class System
 
     }
 
+    public function setLoggingData()
+    {
+        $html = [];
+
+
+        foreach ($this->modelData['logData'] as $logData) {
+            $html[] = '<tr>';
+            $html[] = '<td>' . $logData['logTime'] . '</td>';
+            $html[] = '<td>' . $logData['logMessage'] . '</td>';
+            $html[] = '</tr>';
+        }
+
+        $this->viewData['log'] = implode("\n", $html);
+
+    }
+
     public function setTimeUpdateInfo()
     {
         $html = [];
@@ -93,12 +109,12 @@ class System
 
     }
 
-    public function create()
+    public function create($template = 'index')
     {
 
         $this->renderer->render($this->response, 'header.php', $this->viewData);
         $this->renderer->render($this->response, 'navigation.php', $this->viewData);
-        $this->renderer->render($this->response, 'system/index.php', $this->viewData);
+        $this->renderer->render($this->response, 'system/' . $template . '.php', $this->viewData);
         $this->renderer->render($this->response, 'footer.php', $this->viewData);
 
     }

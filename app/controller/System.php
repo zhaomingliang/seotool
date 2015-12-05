@@ -37,7 +37,21 @@ class System
         $view->loadProjectData();
         $view->setTimeUpdateInfo();
         $view->setWarning();
-        $view->create();
+        $view->create('index');
+
+    }
+
+    public function logging()
+    {
+        $model = new \App\Model\System($this->request, $this->response, $this->db);
+        $model->setTitle('logging');
+        $model->setProjectData();
+        $model->getLoggingData();
+
+        $view = new \App\View\System($this->request, $this->response, $this->renderer, $model->getModelData());
+        $view->loadProjectData();
+        $view->setLoggingData();
+        $view->create('logging');
 
     }
 
