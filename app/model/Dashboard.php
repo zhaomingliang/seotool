@@ -87,7 +87,7 @@ class Dashboard
         $query .= '(SELECT k3.rankingPosition FROM st_rankings k3 WHERE k3.keywordID=r.keywordID AND k3.projectID=' . $this->projectData['currentProjectID'] . ' AND k3.rankingAddedDay = \'' . $this->additionalData['currentDate'] . '\') as pos,';
         $query .= '((SELECT k3.rankingPosition FROM st_rankings k3 WHERE k3.keywordID=r.keywordID AND k3.projectID=' . $this->projectData['currentProjectID'] . ' AND k3.rankingAddedDay = \'' . $this->additionalData['yesterday'] . '\')-';
         $query .= '(SELECT k3.rankingPosition FROM st_rankings k3 WHERE k3.keywordID=r.keywordID AND k3.projectID=' . $this->projectData['currentProjectID'] . ' AND k3.rankingAddedDay = \'' . $this->additionalData['currentDate'] . '\')) as delta';
-        $query .= ' FROM st_rankings r LEFT JOIN st_keywords k ON r.keywordID=k.keywordID WHERE r.projectID=' . $this->projectData['currentProjectID'] . ' AND r.rankingAddedDay=\'' . $this->additionalData['yesterday'] . '\' ORDER BY delta DESC LIMIT 15 ';
+        $query .= ' FROM st_rankings r LEFT JOIN st_keywords k ON r.keywordID=k.keywordID WHERE r.projectID=' . $this->projectData['currentProjectID'] . ' AND r.rankingAddedDay=\'' . $this->additionalData['currentDate'] . '\' ORDER BY delta DESC LIMIT 15 ';
 
         $this->modelData['winnerData'] = $this->db->rawQuery($query);
 
@@ -100,7 +100,7 @@ class Dashboard
         $query .= '(SELECT k3.rankingPosition FROM st_rankings k3 WHERE k3.keywordID=r.keywordID AND k3.projectID=' . $this->projectData['currentProjectID'] . ' AND k3.rankingAddedDay = \'' . $this->additionalData['currentDate'] . '\') as pos,';
         $query .= '((SELECT k3.rankingPosition FROM st_rankings k3 WHERE k3.keywordID=r.keywordID AND k3.projectID=' . $this->projectData['currentProjectID'] . ' AND k3.rankingAddedDay = \'' . $this->additionalData['yesterday'] . '\')-';
         $query .= '(SELECT k3.rankingPosition FROM st_rankings k3 WHERE k3.keywordID=r.keywordID AND k3.projectID=' . $this->projectData['currentProjectID'] . ' AND k3.rankingAddedDay = \'' . $this->additionalData['currentDate'] . '\')) as delta';
-        $query .= ' FROM st_rankings r LEFT JOIN st_keywords k ON r.keywordID=k.keywordID WHERE r.projectID=' . $this->projectData['currentProjectID'] . ' AND r.rankingAddedDay=\'' . $this->additionalData['yesterday'] . '\' ORDER BY delta ASC LIMIT 15 ';
+        $query .= ' FROM st_rankings r LEFT JOIN st_keywords k ON r.keywordID=k.keywordID WHERE r.projectID=' . $this->projectData['currentProjectID'] . ' AND r.rankingAddedDay=\'' . $this->additionalData['currentDate'] . '\' ORDER BY delta ASC LIMIT 15 ';
 
         $this->modelData['loserData'] = $this->db->rawQuery($query);
 
