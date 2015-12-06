@@ -339,6 +339,9 @@ sub saveLog
 
     my $message =   $connect->quote($_[0]);
 
+    my $insert;
+    my $insert_handle;
+
     $insert = "INSERT INTO st_logs (logMessage) VALUES ($message)";
     $insert_handle = $connect->prepare($insert);
     $insert_handle->execute() || dberror ("Error at saveDB insert: $DBI::errstr");
