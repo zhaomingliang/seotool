@@ -103,7 +103,6 @@ class Dashboard
         $query .= ' FROM st_rankings r LEFT JOIN st_keywords k ON r.keywordID=k.keywordID WHERE r.projectID=' . $this->projectData['currentProjectID'] . ' AND r.rankingAddedDay=\'' . $this->additionalData['currentDate'] . '\' ORDER BY delta ASC LIMIT 15 ';
 
         $this->modelData['loserData'] = $this->db->rawQuery($query);
-        print_r($query);
 
     }
 
