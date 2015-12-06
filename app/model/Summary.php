@@ -54,23 +54,26 @@ class Summary
     public function getValueRankings()
     {
 
-        $query   = [];
-        $query[] = 'SELECT p.projectID,p.projectURL,';
-
+        $query         = [];
+        $query_middle  = [];
         $posIfNotFound = 150;
 
-        //heute
-        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(0) . "') as val0,";
-        //gestern
-        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(1) . "') as val1,";
-        //vor 7 Tagen
-        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(6) . "') as val2,";
-        // vor 30 Tagen
-        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(29) . "') as val3,";
-        // vor 60 Tagen
-        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(59) . "') as val4,";
-        // vor 180 Tagen
-        $query[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,1)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate(179) . "') as val5";
+        $daySteps = [
+            0 => 0,
+            1 => 1,
+            2 => 7,
+            3 => 30,
+            4 => 60,
+            5 => 180,
+        ];
+
+        $query[] = 'SELECT p.projectID,p.projectURL,';
+
+        foreach ($daySteps as $valKey => $valDayCount) {
+            $query_middle[] = "(SELECT ROUND(AVG(ifNull(r1.rankingPosition,$posIfNotFound)*k1.keywordTraffic),2) FROM st_rankings r1 LEFT JOIN st_keywords k1 ON r1.keywordID=k1.keywordID WHERE r1.projectID=p.projectID AND r1.rankingAddedDay='" . $this->generateStaticDate($valDayCount) . "') as val$valKey";
+        }
+
+        $query[] = implode(',', $query_middle);
         $query[] = 'FROM st_projects p WHERE p.parentProjectID=' . $this->projectData['currentProjectParentID'] . ' ORDER BY val0 ASC';
 
         $this->query = implode(" ", $query);
@@ -113,7 +116,7 @@ class Summary
         $this->getCompetitionIDsString();
 
         $this->db->where('projectID', $this->competitionString, 'IN');
-        $this->db->where('rankingAdded', $this->chartInterval['min_competition'], '>');
+        $this->db->where('rankingAddedDay', $this->chartInterval['min'], '>');
         $this->db->groupBy('projectID,rankingAddedDay');
         $this->db->orderBy('projectID', 'ASC');
         $this->db->orderBy('rankingAddedDay', 'ASC');
@@ -142,32 +145,12 @@ class Summary
 
     public function generateRankingDataForCurrentProject()
     {
-        $query  = [];
-        $queryM = [];
+        $this->db->where('projectID', $this->projectData['currentProjectID']);
+        $this->db->where('rankingAddedDay', $this->chartInterval['min'], '>');
+        $this->db->groupBy('rankingAddedDay');
+        $this->db->orderBy('rankingAddedDay', 'ASC');
 
-        $query[] = 'SELECT r.projectID, ';
-
-        $dayIterator  = 1;
-        $nameIterator = 1;
-        $dayInterval  = $this->chartInterval['interval'];
-
-        while ($dayIterator <= $this->chartInterval['interval']) {
-
-
-            $day = date('Y-m-d', strtotime('-' . ($dayInterval - 1) . ' day'));
-
-            $queryM[] = "(SELECT '$day') as d$nameIterator";
-            $queryM[] = "(SELECT ROUND(AVG(ifNull(rankingPosition,100)),2) FROM st_rankings WHERE projectID=r.projectID AND rankingAddedDay='$day') as r$nameIterator";
-
-            $dayIterator++;
-            $nameIterator++;
-            $dayInterval--;
-        }
-
-        $query[] = implode(',', $queryM);
-        $query[] = " FROM st_rankings r WHERE r.projectID= " . $this->projectData['currentProjectID'] . " AND r.rankingAdded BETWEEN '" . $this->chartInterval['min'] . " 00:00:00' AND '" . $this->chartInterval['max'] . " 23:59:59' GROUP BY r.projectID";
-
-        $this->query = implode(' ', $query);
+        $this->modelData['queryresultData'] = $this->db->get('rankings', null, 'rankingAddedDay,ROUND( AVG( IFNULL( rankingPosition, 100 ) ) , 2 ) as ranking');
 
     }
 
@@ -180,18 +163,16 @@ class Summary
                 $getParams['last'] = 1;
             }
             $this->chartInterval = [
-                'interval'        => intval($getParams['last']),
-                'min'             => date('Y-m-d', strtotime('-' . intval($getParams['last']) . ' day')),
-                'min_competition' => date('Y-m-d', strtotime('-' . (intval($getParams['last']) - 1) . ' day')),
-                'max'             => date('Y-m-d', strtotime('-0 day')),
+                'interval' => intval($getParams['last']),
+                'min'      => date('Y-m-d', strtotime('-' . intval($getParams['last']) . ' day')),
+                'max'      => date('Y-m-d', strtotime('-0 day')),
             ];
         }
         else {
             $this->chartInterval = [
-                'interval'        => '7',
-                'min'             => date('Y-m-d', strtotime('-7 day')),
-                'min_competition' => date('Y-m-d', strtotime('-6 day')),
-                'max'             => date('Y-m-d', strtotime('-0 day')),
+                'interval' => '7',
+                'min'      => date('Y-m-d', strtotime('-7 day')),
+                'max'      => date('Y-m-d', strtotime('-0 day')),
             ];
         }
 

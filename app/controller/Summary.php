@@ -52,7 +52,6 @@ class Summary
         $model->setProjectData();
         $model->setTimeInterval($this->getParams);
         $model->generateRankingDataForCurrentProject();
-        $model->sendQueryToDB();
 
         $view = new \App\View\Summary($this->request, $this->response, $this->renderer, $model->getModelData());
         $view->loadProjectData();

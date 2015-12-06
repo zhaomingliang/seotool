@@ -30,6 +30,8 @@ class Summary
 
         $this->viewData['projectList'] = $this->modelData['projectListData']->getProjectList();
 
+        $this->viewData['rankingLineJSData'] = '';
+
     }
 
     public function setTableContentForValue()
@@ -113,6 +115,7 @@ class Summary
 
     public function generateTrackedKeywordJSData()
     {
+
         $lineChart = new \App\LineChart();
         $lineChart->setConfig([
             'element'        => 'summary-keywords',
@@ -313,27 +316,9 @@ class Summary
     {
         $html = [];
 
-        $iteratorPos = 1;
-        $days        = 0;
-
-        if(isset($this->modelData['queryresultData'][0])) {
-            $days = (count($this->modelData['queryresultData'][0]) - 1) / 2;
+        foreach ($this->modelData['queryresultData'] as $rankingData) {
+            $html[] = "{d:'" . $rankingData['rankingAddedDay'] . "',avg:" . $rankingData['ranking'] . "}";
         }
-
-
-        while ($iteratorPos <= $days) {
-
-            $value = $this->modelData['queryresultData'][0]['r' . $iteratorPos];
-            if(is_null($value)) {
-                $value = 'null';
-            }
-            $html[] = "{
-                        d: '" . $this->modelData['queryresultData'][0]['d' . $iteratorPos] . "',
-                        avg: " . $value . "
-                   }";
-            $iteratorPos++;
-        }
-
 
         return implode(',', $html);
 
