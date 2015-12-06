@@ -204,44 +204,38 @@ class Summary
 
     private function prepareCompetitionRankingDataForLineChart()
     {
+
+        $tempData              = [];
         $this->compIdentifiers = [];
+        $setCompID             = 0;
 
-        $eachDataAllProjects = [];
-        foreach ($this->modelData['queryresultData'] as $compID => $compData) {
-            $iteratorPos = 1;
-
-
-            $this->compIdentifiers['comp' . $compID] = $compID;
-
-            while ($iteratorPos <= $this->modelData['timeData']['interval']) {
-                $theDate                                         = $compData['d' . $iteratorPos];
-                $eachDataAllProjects[$theDate]['comp' . $compID] = $compData['r' . $iteratorPos];
-                $iteratorPos++;
-            }
+        foreach ($this->modelData['queryresultData'] as $compData) {
+            $tempData[$compData['rankingAddedDay']][$compData['projectID']] = $compData['ranking'];
         }
 
-        $html   = [];
-        $html_d = [];
 
-        foreach ($eachDataAllProjects as $theDate => $compValues) {
+        $html_inner = [];
 
-            $html_d   = [];
-            $html_d[] = "d: '" . $theDate . "'";
+        foreach ($tempData as $theDate => $projectToRank) {
 
-            foreach ($this->compIdentifiers as $theProjectID) {
+            $html_dat   = [];
+            $html_dat[] = "d: '$theDate'";
 
-                $dataPoint = $compValues['comp' . $theProjectID];
-                if(is_null($dataPoint) || $dataPoint >= 100) {
-                    $dataPoint = 'null';
+            foreach ($projectToRank as $pID => $pRankAvg) {
+                if($setCompID == 0) {
+                    $this->compIdentifiers[] = $pID;
                 }
-                $html_d[] = "comp" . $theProjectID . ': ' . $dataPoint;
+                $html_dat[] = "comp$pID:$pRankAvg";
             }
 
-            $html[] = '{' . implode(",", $html_d) . '}';
+            $setCompID    = 1;
+            $html_inner[] = '{' . implode(',', $html_dat) . '}';
         }
 
 
-        return implode(',', $html);
+        $html_outter = implode(',', $html_inner);
+
+        return $html_outter;
 
     }
 

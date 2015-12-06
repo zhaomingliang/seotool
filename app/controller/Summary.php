@@ -70,8 +70,6 @@ class Summary
         $model->setProjectData();
         $model->setTimeInterval($this->getParams);
         $model->generateRankingDataForCompetition();
-        $model->sendQueryToDB();
-        $model->prepareCompetitionResultset();
 
         $view = new \App\View\Summary($this->request, $this->response, $this->renderer, $model->getModelData());
         $view->loadProjectData();

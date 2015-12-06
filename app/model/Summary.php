@@ -94,24 +94,6 @@ class Summary
 
     }
 
-    public function prepareCompetitionResultset()
-    {
-
-        $countCompetitors = count($this->modelData['queryresultData']);
-
-        $tpmmodelData = [];
-
-        foreach ($this->modelData['queryresultData'] as $currentProjectDataResultKey => $currentProjectDataResultData) {
-
-            $projectID = $this->modelData['queryresultData'][$currentProjectDataResultKey]['projectID'];
-
-            $tpmmodelData[$projectID] = $currentProjectDataResultData;
-        }
-
-        $this->modelData['queryresultData'] = $tpmmodelData;
-
-    }
-
     public function getTrackedKeywordData()
     {
 
@@ -126,32 +108,35 @@ class Summary
 
     public function generateRankingDataForCompetition()
     {
-        $query  = [];
-        $queryM = [];
 
-        $query[] = 'SELECT r.projectID, ';
+        $query = [];
+        $this->getCompetitionIDsString();
 
-        $dayIterator  = 1;
-        $nameIterator = 1;
-        $dayInterval  = $this->chartInterval['interval'];
+        $this->db->where('projectID', $this->competitionString, 'IN');
+        $this->db->where('rankingAdded', $this->chartInterval['min_competition'], '>');
+        $this->db->groupBy('projectID,rankingAddedDay');
+        $this->db->orderBy('projectID', 'ASC');
+        $this->db->orderBy('rankingAddedDay', 'ASC');
 
-        while ($dayIterator <= $this->chartInterval['interval']) {
+        $this->modelData['queryresultData'] = $this->db->get('rankings', null, 'projectID,ROUND(AVG(ifNull(rankingPosition,100)),2) as ranking,rankingAddedDay');
 
+    }
 
-            $day = date('Y-m-d', strtotime('-' . ($dayInterval - 1) . ' day'));
+    private function getCompetitionIDsString()
+    {
 
-            $queryM[] = "'$day' as d$nameIterator";
-            $queryM[] = "(SELECT ROUND(AVG(ifNull(rankingPosition,100)),2) FROM st_rankings WHERE projectID=r.projectID AND rankingAddedDay='$day') as r$nameIterator";
+        $str = [];
 
-            $dayIterator++;
-            $nameIterator++;
-            $dayInterval--;
+        foreach ($this->projectData['competitorList'] as $comp) {
+            $str[] = $comp['projectID'];
         }
 
-        $query[] = implode(',', $queryM);
-        $query[] = " FROM st_rankings r LEFT JOIN st_projects pr ON r.projectID=pr.projectID WHERE pr.parentProjectID=" . $this->projectData['currentProjectParentID'] . " AND r.rankingAddedDay BETWEEN '" . $this->chartInterval['min'] . "' AND '" . $this->chartInterval['max'] . "' GROUP BY r.projectID";
-
-        $this->query = implode(' ', $query);
+        if(!empty($str)) {
+            $this->competitionString = $str;
+        }
+        else {
+            $this->competitionString = [0];
+        }
 
     }
 
@@ -195,16 +180,18 @@ class Summary
                 $getParams['last'] = 1;
             }
             $this->chartInterval = [
-                'interval' => intval($getParams['last']),
-                'min'      => date('Y-m-d', strtotime('-' . intval($getParams['last']) . ' day')),
-                'max'      => date('Y-m-d', strtotime('-0 day')),
+                'interval'        => intval($getParams['last']),
+                'min'             => date('Y-m-d', strtotime('-' . intval($getParams['last']) . ' day')),
+                'min_competition' => date('Y-m-d', strtotime('-' . (intval($getParams['last']) - 1) . ' day')),
+                'max'             => date('Y-m-d', strtotime('-0 day')),
             ];
         }
         else {
             $this->chartInterval = [
-                'interval' => '7',
-                'min'      => date('Y-m-d', strtotime('-7 day')),
-                'max'      => date('Y-m-d', strtotime('-0 day')),
+                'interval'        => '7',
+                'min'             => date('Y-m-d', strtotime('-7 day')),
+                'min_competition' => date('Y-m-d', strtotime('-6 day')),
+                'max'             => date('Y-m-d', strtotime('-0 day')),
             ];
         }
 
