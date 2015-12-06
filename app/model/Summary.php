@@ -54,6 +54,29 @@ class Summary
     public function getValueRankings()
     {
 
+        /*
+         * TODO: rewrite using much simpler and fast query
+         * EXAMPLE:
+         *
+         * SELECT
+         *  r.rankingAddedDay, r.projectID, ROUND(AVG(ifNull(r.rankingPosition,150)*k.keywordTraffic),2)
+         * FROM
+         *  st_rankings r
+         * LEFT JOIN
+         *  st_keywords k
+         * ON
+         *  r.keywordID=k.keywordID
+         * WHERE
+         *  r.projectID IN (10,11,12,13,14)
+         * AND
+         *  (r.rankingAddedDay='2015-12-06' OR r.rankingAddedDay='2015-12-05')
+         * GROUP BY
+         *  r.rankingAddedDay, r.projectID
+         * ORDER BY
+         *  rankingAddedDay DESC,projectID ASC
+         *
+         */
+
         $query         = [];
         $query_middle  = [];
         $posIfNotFound = 150;
