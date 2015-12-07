@@ -28,6 +28,23 @@ class Summary
 
     }
 
+    public function positions()
+    {
+
+        $model = new \App\Model\Summary($this->request, $this->response, $this->db);
+        $model->setTitle('value');
+        $model->setProjectData();
+        $model->getPositionDistributions();
+
+
+        $view = new \App\View\Summary($this->request, $this->response, $this->renderer, $model->getModelData());
+        $view->loadProjectData();
+        $view->setPositionDistributionChartsHTML();
+        $view->setPositionDistributionChartsData();
+        $view->create('positions');
+
+    }
+
     public function value()
     {
 

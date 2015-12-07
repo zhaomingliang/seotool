@@ -34,6 +34,78 @@ class Summary
 
     }
 
+    public function setPositionDistributionChartsHTML()
+    {
+
+
+        $html = [];
+
+        foreach ($this->modelData['posDist'] as $posDataKey => $posDataValues) {
+            $html[] = '<div class="panel panel-default">';
+            $html[] = '<div class="panel-heading">';
+            $html[] = '<h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Positionsverteilung am ' . $posDataValues['date'] . '</h3>';
+            $html[] = '</div>';
+            $html[] = '<div class="panel-body">';
+            $html[] = '<div id="dashboard-posdis' . $posDataKey . '"></div>';
+            $html[] = '</div>';
+            $html[] = '</div>';
+        }
+
+        $this->viewData['chartDataHTML'] = implode("\n", $html);
+
+    }
+
+    public function setPositionDistributionChartsData()
+    {
+
+        $html     = [];
+        $barChart = new \App\BarChart();
+
+        foreach ($this->modelData['posDist'] as $posDataKey => $posDataValues) {
+
+            $barChart->setConfig([
+                'element'     => 'dashboard-posdis' . $posDataKey,
+                'xkey'        => 'posData',
+                'ykeys'       => "['posAnzahl']",
+                'labels'      => "['Anzahl Keywords']",
+                'barRatio'    => '0.4',
+                'xLabelAngle' => '0',
+                'hideHover'   => 'auto',
+                'resize'      => 'true',
+            ]);
+
+            $barChart->setDataString(
+                    $this->preparePosDisDataForBarChart($posDataValues['data'][0])
+            );
+
+            $html[] = $barChart->generate();
+        }
+
+        $this->viewData['rankingLineJSData'] = implode("\n", $html);
+
+    }
+
+    private function preparePosDisDataForBarChart($data)
+    {
+        $html = [];
+
+
+        $iteratorPos = 1;
+
+        while ($iteratorPos <= 7) {
+
+            $html[] = "{
+                        posData: '" . $data['n' . $iteratorPos] . "',
+                        posAnzahl: " . $data['p' . $iteratorPos] . "
+                   }";
+            $iteratorPos++;
+        }
+
+
+        return implode(',', $html);
+
+    }
+
     public function setTableContentForValue()
     {
         $html = [];

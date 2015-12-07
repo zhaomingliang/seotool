@@ -51,6 +51,44 @@ class Summary
 
     }
 
+    public function getPositionDistributions()
+    {
+
+        $daySteps = [
+            0 => 0,
+            1 => 1,
+            2 => 7,
+            3 => 30,
+            4 => 60,
+            5 => 180,
+        ];
+
+        foreach ($daySteps as $dayKey => $dayValue) {
+
+            $theDate = date('Y-m-d', strtotime('-' . $dayValue . ' day'));
+
+            $query = 'SELECT '
+                    . '(SELECT COUNT(*) FROM st_rankings WHERE projectID=' . $this->projectData['currentProjectID'] . ' AND rankingAddedDay=\'' . $theDate . '\' AND rankingPosition BETWEEN 1 AND 5)  as p1,'
+                    . '(SELECT COUNT(*) FROM st_rankings WHERE projectID=' . $this->projectData['currentProjectID'] . ' AND rankingAddedDay=\'' . $theDate . '\' AND rankingPosition BETWEEN 6 AND 10)  as p2,'
+                    . '(SELECT COUNT(*) FROM st_rankings WHERE projectID=' . $this->projectData['currentProjectID'] . ' AND rankingAddedDay=\'' . $theDate . '\' AND rankingPosition BETWEEN 11 AND 20)  as p3,'
+                    . '(SELECT COUNT(*) FROM st_rankings WHERE projectID=' . $this->projectData['currentProjectID'] . ' AND rankingAddedDay=\'' . $theDate . '\' AND rankingPosition BETWEEN 21 AND 35)  as p4,'
+                    . '(SELECT COUNT(*) FROM st_rankings WHERE projectID=' . $this->projectData['currentProjectID'] . ' AND rankingAddedDay=\'' . $theDate . '\' AND rankingPosition BETWEEN 35 AND 50)  as p5,'
+                    . '(SELECT COUNT(*) FROM st_rankings WHERE projectID=' . $this->projectData['currentProjectID'] . ' AND rankingAddedDay=\'' . $theDate . '\' AND rankingPosition BETWEEN 51 AND 75)  as p6,'
+                    . '(SELECT COUNT(*) FROM st_rankings WHERE projectID=' . $this->projectData['currentProjectID'] . ' AND rankingAddedDay=\'' . $theDate . '\' AND rankingPosition BETWEEN 76 AND 100)  as p7,'
+                    . '(\'1 - 5\') as n1,'
+                    . '(\'6 - 10\') as n2,'
+                    . '(\'11 - 20\') as n3,'
+                    . '(\'21 - 35\') as n4,'
+                    . '(\'36 - 50\') as n5,'
+                    . '(\'51 - 75\') as n6,'
+                    . '(\'76 - 100\') as n7';
+
+            $this->modelData['posDist'][$dayKey]['date'] = $theDate;
+            $this->modelData['posDist'][$dayKey]['data'] = $this->db->rawQuery($query);
+        }
+
+    }
+
     public function getValueRankings()
     {
 

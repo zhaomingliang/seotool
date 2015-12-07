@@ -50,6 +50,9 @@
                     <li>
                         <a href="/summary/keywords/">Verarbeitete Keywords</a>
                     </li>
+                    <li>
+                        <a href="/summary/positions/">Positionsverteilung</a>
+                    </li>
                 </ul>
             </li>
             <li>
