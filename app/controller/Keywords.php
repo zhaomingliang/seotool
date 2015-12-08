@@ -28,6 +28,21 @@ class Keywords
 
     }
 
+    public function export()
+    {
+        $model = new \App\Model\Keywords($this->request, $this->response, $this->db);
+        $model->setTitle('export');
+        $model->setProjectData();
+        $model->getKeywordList();
+
+
+        $view = new \App\View\Keywords($this->request, $this->response, $this->renderer, $model->getModelData());
+        $view->loadProjectData();
+        $view->setExportList();
+        $view->create('export');
+
+    }
+
     public function chart($keywordID)
     {
         $model            = new \App\Model\Keywords($this->request, $this->response, $this->db);

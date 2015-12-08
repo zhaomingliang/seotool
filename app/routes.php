@@ -43,7 +43,7 @@ $app->get('/summary/{action:ranking|competition|keywords|value|positions}/', fun
 
 
 $app->group('/keywords', function () {
-    $this->get('/{action:index|add|competition|chances}/', function ($request, $response, $args) {
+    $this->get('/{action:index|add|competition|chances|export}/', function ($request, $response, $args) {
         $controller = new App\Controller\Keywords($request, $response, $this->db, $this->renderer);
         $controller->$args['action']();
     });

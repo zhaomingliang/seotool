@@ -68,6 +68,9 @@
                         <a href="/keywords/chances/">Chancen-Keywords</a>
                     </li>
                     <li>
+                        <a href="/keywords/export/">Export</a>
+                    </li>
+                    <li>
                         <a href="/keywords/add/">Keywords hinzufügen</a>
                     </li>
 

@@ -37,8 +37,22 @@ class Keywords
 
     }
 
+    public function setExportList()
+    {
+
+        $html = [];
+        foreach ($this->modelData['exportList'] as $data) {
+
+            $html[] = $data['keywordName'];
+        }
+
+        $this->viewData['exportList'] = implode("\n", $html);
+
+    }
+
     public function generateIntervalPicker($keywordID)
     {
+
         $html = [];
 
         $intervals = [

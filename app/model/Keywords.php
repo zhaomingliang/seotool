@@ -36,6 +36,7 @@ class Keywords
 
     public function setTitle($page)
     {
+
         switch ($page) {
             case 'add':
                 $this->additionalData['title'] = 'SEO Tool: Keyword hinzufügen';
@@ -49,15 +50,26 @@ class Keywords
             case 'chart':
                 $this->additionalData['title'] = 'SEO Tool: Keyword-Diagramm';
                 break;
+            case 'export':
+                $this->additionalData['title'] = 'SEO Tool: Export';
+                break;
             default:
                 $this->additionalData['title'] = 'SEO Tool: Keyword';
         }
 
     }
 
-    public function generateChartData()
+    public function getKeywordList()
     {
 
+        $this->db->where('parentProjectID', $this->projectData['currentProjectParentID']);
+        $this->db->orderBy('keywordID', 'ASC');
+        $this->modelData['exportList'] = $this->db->get('keywords', null, 'keywordName');
+
+    }
+
+    public function generateChartData()
+    {
 
         $this->db->where('keywordID', $this->modelData['keywordID']);
         $this->db->where('projectID', $this->projectData['currentProjectID']);
@@ -70,6 +82,7 @@ class Keywords
 
     public function setKeywordData($keywordID)
     {
+
         $this->modelData['keywordID']   = intval($keywordID);
         $this->db->where('keywordID', $this->modelData['keywordID']);
         $this->modelData['keywordName'] = $this->db->getOne('keywords');
@@ -80,6 +93,7 @@ class Keywords
 
     public function setChartInterval($chartInterval)
     {
+
         $this->modelData['chartInterval'] = 0;
 
         if(isset($chartInterval['interval'])) {
@@ -94,6 +108,7 @@ class Keywords
 
     public function setSelectDate($getParams)
     {
+
         if(isset($getParams['date'])) {
 
             if(preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $getParams['date'])) {
@@ -124,7 +139,6 @@ class Keywords
             }
             $days--;
         }
-
 
         usort($this->additionalData['selectedDate'], function ($item1, $item2) {
             if($item1['date'] == $item2['date'])
@@ -190,6 +204,7 @@ class Keywords
 
     public function deleteSelectedCompetitorFromList()
     {
+
         $this->competitorStringWithoutCurrentID = [];
 
         foreach ($this->modelData['competitorList'] as $compKey => $compArray) {
@@ -298,6 +313,7 @@ class Keywords
 
     private function saveCompetition()
     {
+
         $this->db->where('parentProjectID', $this->projectData['currentProjectParentID']);
         $this->db->orderBy('projectID', 'ASC');
         $this->projectData['competitorList'] = $this->db->get('projects', NULL, 'projectID,projectURL');
