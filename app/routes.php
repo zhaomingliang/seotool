@@ -23,47 +23,51 @@ $app->get('/logout/', function ($request, $response) {
 
 $app->get('/{class:dashboard|settings}/index/', function ($request, $response, $args) {
 
-    $className  = 'App\\Controller\\' . ucfirst($args['class']);
-    $controller = new $className($request, $response, $this->db, $this->renderer);
-    $controller->index();
+    $className = 'App\\Controller\\' . ucfirst($args['class']);
+    $c         = new $className($request, $response, $this->db, $this->renderer);
+    $c->index();
 })->add(new App\CheckAuth());
 
 $app->get('/system/{action:index|logging}/', function ($request, $response, $args) {
 
-    $controller = new App\Controller\System($request, $response, $this->db, $this->renderer);
-    $controller->$args['action']();
+    $c      = new App\Controller\System($request, $response, $this->db, $this->renderer);
+    $action = $args['action'];
+    $c->$action();
 })->add(new App\CheckAuth());
 
 
 $app->get('/summary/{action:ranking|competition|keywords|value|positions}/', function ($request, $response, $args) {
 
-    $controller = new App\Controller\Summary($request, $response, $this->db, $this->renderer);
-    $controller->$args['action']();
+    $c      = new App\Controller\Summary($request, $response, $this->db, $this->renderer);
+    $action = $args['action'];
+    $c->$action();
 })->add(new App\CheckAuth());
 
 
 $app->group('/keywords', function () {
     $this->get('/{action:index|add|competition|chances|export}/', function ($request, $response, $args) {
-        $controller = new App\Controller\Keywords($request, $response, $this->db, $this->renderer);
-        $controller->$args['action']();
+        $c      = new App\Controller\Keywords($request, $response, $this->db, $this->renderer);
+        $action = $args['action'];
+        $c->$action();
     });
 
     $this->get('/chart/{id:\d+}/', function ($request, $response, $args) {
-        $controller = new App\Controller\Keywords($request, $response, $this->db, $this->renderer);
-        $controller->chart($args['id']);
+        $c = new App\Controller\Keywords($request, $response, $this->db, $this->renderer);
+        $c->chart($args['id']);
     });
 })->add(new App\CheckAuth());
 
 
 $app->group('/projects', function () {
     $this->get('/{action:index|add}/', function ($request, $response, $args) {
-        $controller = new App\Controller\Projects($request, $response, $this->db, $this->renderer);
-        $controller->$args['action']();
+        $c      = new App\Controller\Projects($request, $response, $this->db, $this->renderer);
+        $action = $args['action'];
+        $c->$action();
     });
 
     $this->get('/edit/{id:\d+}/', function ($request, $response, $args) {
-        $controller = new App\Controller\Projects($request, $response, $this->db, $this->renderer);
-        $controller->edit($args['id']);
+        $c = new App\Controller\Projects($request, $response, $this->db, $this->renderer);
+        $c->edit($args['id']);
     });
 
     $this->get('/select/{id:\d+}/', function ($request, $response, $args) {
@@ -76,13 +80,14 @@ $app->group('/projects', function () {
 
 $app->group('/backlinks', function () {
     $this->get('/{action:index|add}/', function ($request, $response, $args) {
-        $controller = new App\Controller\Backlinks($request, $response, $this->db, $this->renderer);
-        $controller->$args['action']();
+        $c      = new App\Controller\Backlinks($request, $response, $this->db, $this->renderer);
+        $action = $args['action'];
+        $c->$action();
     });
 
     $this->get('/edit/{id:\d+}/', function ($request, $response, $args) {
-        $controller = new App\Controller\Backlinks($request, $response, $this->db, $this->renderer);
-        $controller->edit($args['id']);
+        $c = new App\Controller\Backlinks($request, $response, $this->db, $this->renderer);
+        $c->edit($args['id']);
     });
 })->add(new App\CheckAuth());
 
@@ -92,8 +97,9 @@ $app->group('/ajax', function () {
 
         $className = '\\App\\Ajax\\' . ucfirst($args['class']);
 
-        $c = new $className($request, $response, $this->db);
-        $c->$args['action']();
+        $c      = new $className($request, $response, $this->db);
+        $action = $args['action'];
+        $c->$action();
     });
 })->add(new App\CheckAuth());
 
