@@ -13,7 +13,7 @@ $( document ).ready( function() {
 
     ajaxRequestHandler( "#keywordsAdd_submit", "#keywordsAdd", "/ajax/keywords/add/", "add", ".alert" );
 
-    ajaxRequestHandler( "#keywordsUpdate_submit", "#keywordsUpdate", "/ajax/keywords/update/", "update", ".alert" );
+    ajaxRequestHandler( "#keywordsUpdate_submit", "#keywordsUpdate", "/ajax/keywords/update/", "update", ".keywordUpdateInfo" );
 
     ajaxRequestHandler( "#projectAdd_submit", "#projectAdd", "/ajax/projects/add/", "add", ".alert" );
 
@@ -26,6 +26,7 @@ $( document ).ready( function() {
     } );
 
     $( '#keywordModal' ).on( 'show.bs.modal', function( event ) {
+        $( "#keywordModal .messageHolder" ).hide();
         var button = $( event.relatedTarget );
         var keyword = button.data( 'name' );
         var kwid = button.data( 'kid' );
@@ -58,6 +59,41 @@ $( document ).ready( function() {
                 error : function( data ) {
                     console.log( data );
                 }
+            } );
+        }
+
+
+    } );
+
+    $( document ).on( 'click', '#cleanLog', function( event ) {
+        event.preventDefault();
+        $( ".fa-close" ).hide();
+        $( ".fa-spinner" ).fadeIn();
+
+        if ( askBeforeCriticalAction( "Sicher, dass du den gesamten Logverlauf löschen willst?" ) ) {
+
+            $.ajax( {
+                url : '/ajax/system/cleanlog/',
+                type : 'POST',
+                success : function( data ) {
+                    data = $.parseJSON( data );
+                    if ( data.error == 0 ) {
+                        $( ".alert" ).addClass( "alert-success" ).removeClass( "alert-danger" );
+                        $( "#message" ).html( data.message );
+                        $( ".messageHolder" ).fadeIn();
+                    } else {
+                        $( ".alert" ).addClass( "alert-danger" ).removeClass( "alert-success" );
+                        $( "#message" ).html( data.message );
+                        $( ".messageHolder" ).fadeIn();
+                    }
+                },
+                error : function( data ) {
+                    console.log( data );
+                }
+            } ).done( function( data ) {
+                $( ".fa-spinner" ).hide();
+                $( ".fa-close" ).fadeIn();
+                console.log( data );
             } );
         }
 

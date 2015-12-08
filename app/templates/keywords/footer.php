@@ -43,7 +43,7 @@
                         <p class="help-block">Hier kannst du das Suchvolumen des Keywords eintragen</p>
                     </div>
                     <div class="col-lg-12 messageHolder">
-                        <div class="alert">
+                        <div class="alert keywordUpdateInfo">
                             <div id="message"></div>
                         </div>
                     </div>
