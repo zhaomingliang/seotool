@@ -39,7 +39,10 @@ class Summary
                 $this->additionalData['title'] = 'SEO Tool: Ranking-Zusammenfassung';
                 break;
             case 'value':
-                $this->additionalData['title'] = 'SEO Tool: Ranking-Value der Konkurrenten';
+                $this->additionalData['title'] = 'SEO Tool: Rankingwert der Konkurrenten';
+                break;
+            case 'valueindex':
+                $this->additionalData['title'] = 'SEO Tool: Rankingwertindex aller Konkurrenten';
                 break;
             case 'keywords':
                 $this->additionalData['title'] = 'SEO Tool: Verarbeitete Keywords';
