@@ -32,7 +32,7 @@ class Summary
     {
 
         $model = new \App\Model\Summary($this->request, $this->response, $this->db);
-        $model->setTitle('value');
+        $model->setTitle('positions');
         $model->setProjectData();
         $model->getPositionDistributions();
 

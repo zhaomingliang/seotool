@@ -50,6 +50,9 @@ class Summary
             case 'competition':
                 $this->additionalData['title'] = 'SEO Tool: Konkurrenz-Zusammenfassung';
                 break;
+            case 'positions':
+                $this->additionalData['title'] = 'SEO Tool: Positionsverteilung';
+                break;
         }
 
     }
