@@ -6,7 +6,7 @@
 
 <strong>Ansonsten:</strong>
 <ul>
-<li>Server mit SSH-Zugang (d.h. kein Webspace nicht geeignet)</li>
+<li>Server mit SSH-Zugang (d.h. Webspace nicht geeignet)</li>
 <li>PHP 5.6 (kompatibel mit PHP 7.0.0)</li>
 <li>MYSQL 5.5</li>
 <li>PERL 5.20</li>
