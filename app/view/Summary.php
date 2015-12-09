@@ -37,7 +37,6 @@ class Summary
     public function setPositionDistributionChartsHTML()
     {
 
-
         $html = [];
 
         foreach ($this->modelData['posDist'] as $posDataKey => $posDataValues) {
@@ -87,8 +86,8 @@ class Summary
 
     private function preparePosDisDataForBarChart($data)
     {
-        $html = [];
 
+        $html = [];
 
         $iteratorPos = 1;
 
@@ -101,13 +100,13 @@ class Summary
             $iteratorPos++;
         }
 
-
         return implode(',', $html);
 
     }
 
     public function setTableContentForValue()
     {
+
         $html = [];
 
         foreach ($this->modelData['queryresultData'] as $valueData) {
@@ -209,8 +208,8 @@ class Summary
 
     private function prepareTrackedKeywordDataForLineChart()
     {
-        $html = [];
 
+        $html = [];
 
         foreach ($this->modelData['queryresultData'] as $pointKey => $pointData) {
             $value = $pointData['nr'];
@@ -223,14 +222,13 @@ class Summary
                    }";
         }
 
-
-
         return implode(',', $html);
 
     }
 
     public function generateCompetitionRankingJSData()
     {
+
         $lineChart = new \App\LineChart();
 
         $dataString = $this->prepareCompetitionRankingDataForLineChart();
@@ -260,8 +258,74 @@ class Summary
 
     }
 
+    public function generateValueIndexJSData()
+    {
+
+        $lineChart = new \App\LineChart();
+
+        $dataString = $this->prepareValueIndexDataForLineChart();
+
+
+        $lineChart->setConfig([
+            'element'         => 'summary-valueindex',
+            'xkey'            => 'd',
+            'xLabels'         => 'day',
+            'ykeys'           => "['comp" . implode("','comp", $this->compIdentifiers) . "']",
+            'labels'          => "[" . $this->competitionNames() . "]",
+            'smooth'          => 'false',
+            'resize'          => 'true',
+            'continuousLine'  => 'true',
+            'goalStrokeWidth' => '1',
+            'goalLineColors'  => "['#d9534f']",
+            'grid'            => 'true'
+        ]);
+
+        $lineChart->setDataString(
+                $dataString
+        );
+
+        $this->viewData['rankingLineJSData'] = $lineChart->generate();
+
+    }
+
+    private function prepareValueIndexDataForLineChart()
+    {
+
+        $tempData              = [];
+        $this->compIdentifiers = [];
+        $setCompID             = 0;
+
+        foreach ($this->modelData['queryresultData'] as $compData) {
+            $tempData[$compData['rankingAddedDay']][$compData['projectID']] = $compData['rankIndex'];
+        }
+
+        $html_inner = [];
+
+        foreach ($tempData as $theDate => $projectToRank) {
+
+            $html_dat   = [];
+            $html_dat[] = "d: '$theDate'";
+
+            foreach ($projectToRank as $pID => $pRankAvg) {
+                if($setCompID == 0) {
+                    $this->compIdentifiers[] = $pID;
+                }
+                $html_dat[] = "comp$pID:$pRankAvg";
+            }
+
+            $setCompID    = 1;
+            $html_inner[] = '{' . implode(',', $html_dat) . '}';
+        }
+
+        $html_outter = implode(',', $html_inner);
+
+        return $html_outter;
+
+    }
+
     private function competitionNames()
     {
+
         $html = [];
 
         foreach ($this->modelData['projectData']['competitorList'] as $compDefaultKey => $compData) {
@@ -288,7 +352,6 @@ class Summary
             $tempData[$compData['rankingAddedDay']][$compData['projectID']] = $compData['ranking'];
         }
 
-
         $html_inner = [];
 
         foreach ($tempData as $theDate => $projectToRank) {
@@ -307,7 +370,6 @@ class Summary
             $html_inner[] = '{' . implode(',', $html_dat) . '}';
         }
 
-
         $html_outter = implode(',', $html_inner);
 
         return $html_outter;
@@ -316,6 +378,7 @@ class Summary
 
     public function generateDatePicker($action = 'ranking', $add = 0)
     {
+
         $html = [];
 
         $intervals = [
@@ -379,6 +442,7 @@ class Summary
 
     public function loadProjectData()
     {
+
         $this->viewData['projectData']                      = $this->modelData['projectData'];
         $this->viewData['projectData']['currentProjectURL'] = \App\Tool::removeSchemeFromURL($this->viewData['projectData']['currentProjectURL']);
 
@@ -386,6 +450,7 @@ class Summary
 
     private function prepareSingleRankingDataForLineChart()
     {
+
         $html = [];
 
         foreach ($this->modelData['queryresultData'] as $rankingData) {
@@ -398,6 +463,7 @@ class Summary
 
     public function create($template = 'ranking')
     {
+
         $this->renderer->render($this->response, 'header.php', $this->viewData);
         $this->renderer->render($this->response, 'navigation.php', $this->viewData);
         $this->renderer->render($this->response, 'summary/' . $template . '.php', $this->viewData);

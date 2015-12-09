@@ -12,6 +12,9 @@
                     <li>
                         <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
                     </li>
+                    <li>
+                        <i class="fa fa-list"></i> <a href="/keywords/index/">Keywordübersicht</a>
+                    </li>
                     <li class="active">
                         <i class="fa fa-bar-chart-o"></i> Rankingwert
                     </li>

@@ -61,6 +61,23 @@ class Summary
 
     }
 
+    public function valueindex()
+    {
+
+        $model = new \App\Model\Summary($this->request, $this->response, $this->db);
+        $model->setTitle('valueindex');
+        $model->setProjectData();
+        $model->setTimeInterval($this->getParams);
+        $model->getValueIndex();
+
+        $view = new \App\View\Summary($this->request, $this->response, $this->renderer, $model->getModelData());
+        $view->loadProjectData();
+        $view->generateValueIndexJSData();
+        $view->generateDatePicker('valueindex');
+        $view->create('valueindex');
+
+    }
+
     public function ranking()
     {
 

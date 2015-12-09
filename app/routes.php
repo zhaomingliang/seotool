@@ -36,7 +36,7 @@ $app->get('/system/{action:index|logging}/', function ($request, $response, $arg
 })->add(new App\CheckAuth());
 
 
-$app->get('/summary/{action:ranking|competition|keywords|value|positions}/', function ($request, $response, $args) {
+$app->get('/summary/{action:ranking|competition|keywords|value|positions|valueindex}/', function ($request, $response, $args) {
 
     $c      = new App\Controller\Summary($request, $response, $this->db, $this->renderer);
     $action = $args['action'];

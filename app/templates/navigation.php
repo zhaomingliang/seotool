@@ -45,14 +45,15 @@
                         <a href="/summary/competition/">Konkurrenzindex</a>
                     </li>
                     <li>
-                        <a href="/summary/value/">Rankingwert</a>
-                    </li>
-                    <li>
-                        <a href="/summary/keywords/">Verarbeitete Keywords</a>
+                        <a href="/summary/valueindex/">Rankingwertindex</a>
                     </li>
                     <li>
                         <a href="/summary/positions/">Positionsverteilung</a>
                     </li>
+                    <li>
+                        <a href="/summary/keywords/">Verarbeitete Keywords</a>
+                    </li>
+
                 </ul>
             </li>
             <li>
@@ -60,6 +61,9 @@
                 <ul id="keywords" class="collapse">
                     <li>
                         <a href="/keywords/index/">Übersicht</a>
+                    </li>
+                    <li>
+                        <a href="/summary/value/">Rankingwert</a>
                     </li>
                     <li>
                         <a href="/keywords/competition/">Konkurrenz</a>

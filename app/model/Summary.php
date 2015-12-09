@@ -141,6 +141,25 @@ class Summary
 
     }
 
+    public function getValueIndex()
+    {
+
+        $posIfNotFound = 150;
+        $this->getCompetitionIDsString();
+
+        $this->db->join("keywords k", "r.keywordID=k.keywordID", "LEFT");
+        $this->db->where('r.projectID', $this->competitionString, 'IN');
+        $this->db->where("r.rankingAddedDay > '" . $this->chartInterval['min'] . "'");
+
+        $this->db->groupBy('r.rankingAddedDay,r.projectID');
+
+        $this->db->orderBy('r.rankingAddedDay', 'ASC');
+        $this->db->orderBy('r.projectID', 'ASC');
+
+        $this->modelData['queryresultData'] = $this->db->get('rankings r', null, 'r.rankingAddedDay, r.projectID, ROUND(AVG(ifNull(r.rankingPosition,' . $posIfNotFound . ')*k.keywordTraffic),2) as rankIndex');
+
+    }
+
     private function generateStaticDate($dayCounter, $format = 'Y-m-d')
     {
 
