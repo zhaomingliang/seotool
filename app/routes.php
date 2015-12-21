@@ -93,7 +93,7 @@ $app->group('/backlinks', function () {
 
 $app->group('/ajax', function () {
 
-    $this->post('/{class:projects|keywords|settings|backlinks}/{action:add|remove|update}/', function ($request, $response, $args) {
+    $this->post('/{class:projects|keywords|settings|backlinks|system}/{action:add|remove|update|cleanlog}/', function ($request, $response, $args) {
 
         $className = '\\App\\Ajax\\' . ucfirst($args['class']);
 
