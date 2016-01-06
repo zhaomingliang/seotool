@@ -6,17 +6,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-sitemap"></i> Projekt bearbeiten
+                    <i class="fa fa-sitemap"></i> 编辑数据
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">仪表板</a>
                     </li>
                     <li>
-                        <i class="fa fa-sitemap"></i> <a href="/projects/index/">Projektübersicht</a>
+                        <i class="fa fa-sitemap"></i> <a href="/projects/index/">项目概况</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-edit"></i> Projekt bearbeiten
+                        <i class="fa fa-edit"></i> 编辑数据
                     </li>
                 </ol>
             </div>
@@ -24,7 +24,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p>Die Funktionen zum Bearbeiten sind recht simpel gehalten - du kannst die Internetadressen ändern bzw. Konkurrenten hinzufügen, bearbeiten oder löschen. Das gesamte Projekt lässt sich über die Projektübersicht löschen. Alle Daten inkl. Keywords und Trackings gehen dabei verloren.</p>
+            <p>编辑功能保持相当简单 - 你可以改变互联网地址或增加竞争对手，编辑或删除。整个项目可在项目概况被删除。所有数据含关键字和跟踪将会丢失。</p>
         </div>
 
         <form role="form" id="projectUpdate">
@@ -49,7 +49,7 @@
             </div>
             
             <div class="col-lg-12 text-right">
-                <button id="projectUpdate_submit" type="submit" class="btn btn-primary"><i class="fa fa-save"></i><i class="fa fa-spinner fa-spin"></i> Daten speichern</button>
+                <button id="projectUpdate_submit" type="submit" class="btn btn-primary"><i class="fa fa-save"></i><i class="fa fa-spinner fa-spin"></i> 存储数据</button>
             </div>
 
         </form>

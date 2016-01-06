@@ -6,14 +6,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-sitemap"></i> Projektübersicht
+                    <i class="fa fa-sitemap"></i> 项目概况
                 </h1>
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-sitemap"></i> Projektübersicht
+                        <i class="fa fa-sitemap"></i> 项目概况
                     </li>
                 </ol>
             </div>
@@ -21,7 +21,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p>In der Projektübersicht siehst du alle Projekte, die du angelegt hast. In der gleichen Reihe werden die von dir angelegten Konkurrenten ebenfalls angezeigt. Außerdem findest du die gesamte Anzahl an Keywords, die für dieses Keywpord inkl. der Konkurrenten getrackt wird. Auf der rechten Seite kannst du die Projekte jeweils bearbeiten bzw. komplett löschen. Mit dem Löschen werden alle Daten des Projekts komplett gelöscht - das gilt auch für die Konkurrenz und Keyworddaten.</p>
+            <p>在项目概述你可以看到所有你已经创建的项目。在同一行中，也显示了你竞争对手的规模。此外，你会发现，将被跟踪这个Keywpord包括关键字的总数。而竞争对手。在右边，你可以编辑或完全删除相应的项目。通过从将被彻底删除的项目删除所有数据 - 这也是真正的竞争，而关键字数据</p>
         </div>
         
         <div class="col-lg-3">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="col-lg-push-6 col-lg-3 text-right">
-            <a type="button" class="btn btn-primary" href="/projects/add/"> <i class="fa fa-plus"></i> Projekt hinzufügen</a>
+            <a type="button" class="btn btn-primary" href="/projects/add/"> <i class="fa fa-plus"></i>添加项目</a>
         </div>
         
         <div class="col-lg-12">
@@ -39,10 +39,10 @@
                 <table id="searchableTable" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Hauptprojekt</th>
-                            <th>Konkurrenz</th>
-                            <th>Keywords</th>
-                            <th>Hinzugefügt</th>
+                            <th>主要项目</th>
+                            <th>竞赛</th>
+                            <th>关键字</th>
+                            <th>添加</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -56,7 +56,7 @@
         <!-- /.row -->
         
         <div class="col-lg-12 text-right">
-                <a type="button" class="btn btn-primary" href="/projects/add/"> <i class="fa fa-plus"></i> Projekt hinzufügen</a>
+                <a type="button" class="btn btn-primary" href="/projects/add/"> <i class="fa fa-plus"></i> 添加项目</a>
         </div>
         <!-- /.row -->
         

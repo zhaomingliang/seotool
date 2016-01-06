@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-wrench"></i> Einstellungen <small>Allgemein</small>
+                    <i class="fa fa-wrench"></i> 设置 <small>一般</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li class="active">
-                        <i class="fa fa-wrench"></i> Einstellungen
+                        <i class="fa fa-wrench"></i> 设置
                     </li>
                 </ol>
             </div>
@@ -25,15 +25,15 @@
                     <div class="form-group">
                         <label>Ausführungszeigen</label>
                         <input class="form-control" value="<?php echo $settings['cronjobHours']?>" type="text" name="timing">
-                        <p class="help-block">Empfehlung: <strong>0,1,2,3,4,5,6,7,8,9,10</strong></p>
+                        <p class="help-block">建议: <strong>0,1,2,3,4,5,6,7,8,9,10</strong></p>
                     </div>
                     <div class="form-group">
                         <label>Pause zwischen Requests</label>
                         <p class="help-block">Variabel:</p>
                         <input class="form-control" value="<?php echo $settings['pauseVariable']?>" type="text" name="pause_variable">
-                        <p class="help-block">Statisch:</p>
+                        <p class="help-block">静态:</p>
                         <input class="form-control" value="<?php echo $settings['pauseStatic']?>" type="text" name="pause_static">
-                        <p class="help-block">Empfehlung: Variabel auf <strong>45</strong> und Statisch auf <strong>45</strong> setzen</p>
+                        <p class="help-block">建议: Variabel auf <strong>45</strong> und Statisch auf <strong>45</strong> setzen</p>
                     </div>
                     <div class="form-group">
                         <label>Standard-Projekt</label>

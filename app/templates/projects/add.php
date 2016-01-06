@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-sitemap"></i> Projekt hinzufügen
+                    <i class="fa fa-sitemap"></i> 添加项目
                 </h1>
                 <ol class="breadcrumb">
                     <li>
@@ -16,7 +16,7 @@
                         <i class="fa fa-sitemap"></i> <a href="/projects/index/">Projektübersicht</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-plus"></i> Projekt hinzufügen
+                        <i class="fa fa-plus"></i> 添加项目
                     </li>
                 </ol>
             </div>
@@ -24,7 +24,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p>Hier kannst du dein Projekt sowie dessen Konkurrenz schnell und einfach eintragen. Bitte achte darauf, dass du alle Projektadressen <strong>mit http:// bzw. https:// einträgst</strong>. Vergisst du das, kannst du davon ausgehen, dass die Ergebnisse falsch sein werden. Als Beispiel: trägst du nur "domain.de" ein, und befindet sich "tolle-domain.de" vor dir im Ranking, so wird diese erkannt und verwendet. Verwendest du allerdings "http://domain.de" passiert das nicht.</p>
+            <p>在这里，您可以把您的项目和它的竞争者很容易进入。请确保您所有的项目地址 <strong>以http：//或https ：</strong>难道你忘了，你可以假设的结果将是不正确的。举个例子：你穿了只“ domain.de ” ，并在你的排名前面的“ tolle-domain.de ” ，他们将被识别和使用。你使用，但“ http://domain.de ”不会发生。</p>
         </div>
 
         <form role="form" id="projectAdd">
@@ -63,7 +63,7 @@
             </div>
 
             <div class="col-lg-12 text-right">
-                <button id="projectAdd_submit" type="submit" class="btn btn-primary"><i class="fa fa-save"></i><i class="fa fa-spinner fa-spin"></i> Daten speichern</button>
+                <button id="projectAdd_submit" type="submit" class="btn btn-primary"><i class="fa fa-save"></i><i class="fa fa-spinner fa-spin"></i> 存储数据</button>
             </div>
 
         </form>

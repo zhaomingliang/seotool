@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-fw fa-link"></i> Backlinks <small>bearbeiten</small>
+                    <i class="fa fa-fw fa-link"></i> 反向链接 <small>bearbeiten</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
@@ -16,7 +16,7 @@
                         <i class="fa fa-fw fa-link"></i> <a href="/backlinks/index/">Backlinkübersicht</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-edit"></i> Backlink bearbeiten
+                        <i class="fa fa-edit"></i>编辑反向链接
                     </li>
                 </ol>
             </div>
@@ -24,7 +24,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p>Bearbeite hier das gewählte Keyword.</p>
+            <p>在这里编辑选择的关键字。</p>
         </div>
 
         <form role="form" id="backlinkUpdate">
@@ -32,20 +32,20 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="form-group">
-                        <label>Linkquelle</label>
+                        <label>链接地址</label>
                         <input name="linkSource" value="<?php echo $backlinkSource;?>" class="form-control">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <label>Linktext</label>
+                        <label>链接文本</label>
                         <input name="linkText" value="<?php echo $backlinkLinkText;?>" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-lg-12">
                     <div class="form-group">
-                        <label>Linkziel</label>
+                        <label>链接目标</label>
                         <input name="linkTo" value="<?php echo $backlinkTarget;?>" class="form-control">
                     </div>
                 </div>
@@ -110,7 +110,7 @@
 
             <div class="row">
                 <div class="col-lg-12 text-right">
-                    <button id="backlinkUpdate_submit" type="submit" class="btn btn-primary"><i class="fa fa-save"></i><i class="fa fa-spinner fa-spin"></i> Backlink aktualisieren</button>
+                    <button id="backlinkUpdate_submit" type="submit" class="btn btn-primary"><i class="fa fa-save"></i><i class="fa fa-spinner fa-spin"></i> 更新反向链接</button>
                 </div>
             </div>
         </form>

@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-bar-chart-o"></i> 价值榜index <small>aller Konkurrenten</small>
+                    <i class="fa fa-bar-chart-o"></i> 价值榜index <small>所有的竞争对手</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">仪表板</a>
                     </li>
                     <li class="active">
                         <i class="fa fa-fw fa-bar-chart-o"></i> 价值榜index
@@ -21,7 +21,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p><strong>Je kleiner, desto besser!</strong> Der 价值榜 wird hier auf die y-Achse für jeden Konkurrenten aufgetragen. Dessen Berechnung ist <a href="/summary/value/">hier</a> genauer erklärt.</p>
+            <p><strong>越小越好！</strong> Der 价值榜 将在每个竞争对手的Y轴坐标。它的计算 <a href="/summary/value/">这里</a> 详细说明。</p>
         </div>
 
         <div class="row">

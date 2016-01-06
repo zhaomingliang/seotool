@@ -6,17 +6,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-fw fa-link"></i> Backlinks <small>hinzufügen</small>
+                    <i class="fa fa-fw fa-link"></i>反向链接 <small>添加</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">仪表板</a>
                     </li>
                     <li>
-                        <i class="fa fa-fw fa-link"></i> <a href="/backlinks/index/">Backlinkübersicht</a>
+                        <i class="fa fa-fw fa-link"></i> <a href="/backlinks/index/">反向链接概述</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-plus"></i> Backlink hinzufügen
+                        <i class="fa fa-plus"></i> 反向链接 添加
                     </li>
                 </ol>
             </div>
@@ -24,27 +24,27 @@
         <!-- /.row -->
 
         <div class="well">
-            <p>Dieser Bereich erlaubt es schnell und einfach Backlinks für dein Projekt anzulegen. Die Quelle (Verlinker) zeigt auf deine Seite (Verlinkter), zusätzlich kannst du die Art des Links sowie den Quellentyp als auch die Relation angeben. Diese Daten werden im Dashboard zusammengefasst, so dass es sich lohnt hier gewissenhaft zu sein.</p>
+            <p>这部分允许快速和容易建立反向链接为您的项目。源（Verlinker）显示在您的网站（链接），此外你可以指定链接的类型和源类型和关系。这些数据汇总在仪表板，所以是值得在这里兢兢业业。</p>
         </div>
 
         <form role="form" id="backlinkAdd">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="form-group">
-                        <label>Linkquelle</label>
+                        <label>链接地址</label>
                         <input name="linkSource" class="form-control">
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <label>Linktext</label>
+                        <label>链接文字</label>
                         <input name="linkText" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-lg-12">
                     <div class="form-group">
-                        <label>Linkziel</label>
+                        <label>链接目标</label>
                         <input name="linkTo" class="form-control">
                     </div>
                 </div>

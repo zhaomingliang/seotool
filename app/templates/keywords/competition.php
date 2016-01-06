@@ -6,14 +6,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-list"></i> Mitbewerberranking
+                    <i class="fa fa-list"></i> 竞争对手的排名
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">仪表盘</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-fw fa-list"></i> Konkurrenzübersicht
+                        <i class="fa fa-fw fa-list"></i> 比赛综述
                     </li>
                 </ol>
             </div>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="alert alert-danger">
-            <strong>Wichtig: </strong> Wenn hier viele Keywords geladen werden müssen, kann das generieren einige Sekunden dauern und eine Art "delay" entstehen.
+            <strong>Wichtig: </strong> 如果许多关键字必须在这里下载可能需要几秒钟，并产生一种“延迟”的出现。
         </div>
 
         <div class="col-lg-3">
