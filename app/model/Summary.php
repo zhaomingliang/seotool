@@ -36,19 +36,19 @@ class Summary
     {
         switch ($page) {
             case 'ranking':
-                $this->additionalData['title'] = 'SEO Tool: Ranking-Zusammenfassung';
+                $this->additionalData['title'] = 'SEO Tool: Ranking-摘要';
                 break;
             case 'value':
-                $this->additionalData['title'] = 'SEO Tool: Rankingwert der Konkurrenten';
+                $this->additionalData['title'] = 'SEO Tool: 价值榜 der Konkurrenten';
                 break;
             case 'valueindex':
-                $this->additionalData['title'] = 'SEO Tool: Rankingwertindex aller Konkurrenten';
+                $this->additionalData['title'] = 'SEO Tool: 价值榜index aller Konkurrenten';
                 break;
             case 'keywords':
                 $this->additionalData['title'] = 'SEO Tool: Verarbeitete Keywords';
                 break;
             case 'competition':
-                $this->additionalData['title'] = 'SEO Tool: Konkurrenz-Zusammenfassung';
+                $this->additionalData['title'] = 'SEO Tool: Konkurrenz-摘要';
                 break;
             case 'positions':
                 $this->additionalData['title'] = 'SEO Tool: Positionsverteilung';

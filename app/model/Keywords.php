@@ -39,22 +39,22 @@ class Keywords
 
         switch ($page) {
             case 'add':
-                $this->additionalData['title'] = 'SEO Tool: Keyword hinzufügen';
+                $this->additionalData['title'] = '搜索引擎优化工具：添加关键字';
                 break;
             case 'chances':
-                $this->additionalData['title'] = 'SEO Tool: Keyword-Chancen';
+                $this->additionalData['title'] = '搜索引擎优化工具：关键字提示';
                 break;
             case 'competition':
-                $this->additionalData['title'] = 'SEO Tool: Konkurrenz im Keywordvergleich';
+                $this->additionalData['title'] = '搜索引擎优化工具：关键字提示';
                 break;
             case 'chart':
-                $this->additionalData['title'] = 'SEO Tool: Keyword-Diagramm';
+                $this->additionalData['title'] = '搜索引擎优化工具：关键字图';
                 break;
             case 'export':
-                $this->additionalData['title'] = 'SEO Tool: Export';
+                $this->additionalData['title'] = '搜索引擎优化工具：导入';
                 break;
             default:
-                $this->additionalData['title'] = 'SEO Tool: Keyword';
+                $this->additionalData['title'] = '搜索引擎优化工具';
         }
 
     }

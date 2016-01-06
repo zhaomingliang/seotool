@@ -39,7 +39,7 @@ class Dashboard
 
         $donutChart = new \App\DonutChart();
         $donutChart->setConfig([
-            'element' => 'dashboard-relations'
+            'element' => 'Dashboard-relations'
         ]);
 
         $donutChart->setDataString(
@@ -74,7 +74,7 @@ class Dashboard
 
         $lineChart = new \App\LineChart();
         $lineChart->setConfig([
-            'element'        => 'dashboard-ranking',
+            'element'        => 'Dashboard-ranking',
             'xkey'           => 'd',
             'ykeys'          => "['avg']",
             'labels'         => "['Ranking im Durchschnitt']",
@@ -217,7 +217,7 @@ class Dashboard
         $barChart = new \App\BarChart();
 
         $barChart->setConfig([
-            'element'     => 'dashboard-posdis',
+            'element'     => 'Dashboard-posdis',
             'xkey'        => 'posData',
             'ykeys'       => "['posAnzahl']",
             'labels'      => "['Anzahl Keywords']",
@@ -261,8 +261,8 @@ class Dashboard
 
         $this->renderer->render($this->response, 'header.php', $this->viewData);
         $this->renderer->render($this->response, 'navigation.php', $this->viewData);
-        $this->renderer->render($this->response, 'dashboard/index.php', $this->viewData);
-        $this->renderer->render($this->response, 'dashboard/footer.php', $this->viewData);
+        $this->renderer->render($this->response, 'Dashboard/index.php', $this->viewData);
+        $this->renderer->render($this->response, 'Dashboard/footer.php', $this->viewData);
 
     }
 

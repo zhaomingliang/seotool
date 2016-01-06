@@ -87,10 +87,10 @@ class Backlinks
 
             if(!$this->db->delete('backlinks')) {
                 $this->error   = 1;
-                $this->message = '<strong>Verdammt!</strong> Der Backlink konnte nicht korrekt gelöscht werden.';
+                $this->message = '<strong>错误!</strong> 反向链接无法正常删除。';
             }
             else {
-                $this->message = '<strong>Alles klar!</strong> Der Backlink wurde nun gelöscht.';
+                $this->message = '<strong>成功!</strong> 反向链接已经被删除。';
             }
         }
 
@@ -115,7 +115,7 @@ class Backlinks
         $backlinkID = $this->db->insert('backlinks', $data);
 
         if($backlinkID > 0) {
-            $this->message = '<strong>Alles klar:</strong> Der Backlink wurde mit der ID ' . $backlinkID . ' eingetragen. Die Felder werden zurückgesetzt. Du kannst direkt den nächsten Backlink speichern.';
+            $this->message = '<strong>成功:</strong> 反向链接是使用ID创建 ' . $backlinkID . ' 输入。字段复位。您可以直接救下的反向链接。';
         }
 
     }

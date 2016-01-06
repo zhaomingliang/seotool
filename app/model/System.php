@@ -59,10 +59,10 @@ class System
     {
         switch ($page) {
             case 'logging':
-                $this->additionalData['title'] = 'SEO Tool: Logging';
+                $this->additionalData['title'] = '搜索引擎优化工具：记录';
                 break;
             default:
-                $this->additionalData['title'] = 'SEO Tool: Systemstatus';
+                $this->additionalData['title'] = '搜索引擎优化工具：系统状态';
         }
 
     }

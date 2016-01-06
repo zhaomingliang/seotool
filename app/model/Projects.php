@@ -43,19 +43,19 @@ class Projects
 
     public function loadIndexPageData()
     {
-        $this->additionalData['title'] = 'SEO Tool: Projektübersicht';
+        $this->additionalData['title'] = '搜索引擎优化工具：项目概况';
 
     }
 
     public function loadAddPageData()
     {
-        $this->additionalData['title'] = 'SEO Tool: Projekt hinzufügen';
+        $this->additionalData['title'] = '搜索引擎优化工具：添加项目';
 
     }
 
     public function loadEditPageData()
     {
-        $this->additionalData['title'] = 'SEO Tool: Projekt bearbeiten';
+        $this->additionalData['title'] = '搜索引擎优化工具：编辑项目';
 
     }
 

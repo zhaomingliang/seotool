@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-bar-chart-o"></i> Zusammenfassung <small>Konkurrenz zu <?php echo $projectData['currentProjectURL'];?></small>
+                    <i class="fa fa-bar-chart-o"></i> 摘要 <small>竞赛 <?php echo $projectData['currentProjectURL'];?></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li class="active">
                         <i class="fa fa-fw fa-bar-chart-o"></i> Vergleich mit der Konkurrenz
@@ -21,7 +21,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p>Der Konkurrentindex ist vergleichbar mit dem normalen Rankingindex. Für jeden Mitbewerber werden die durchschnittlichen Positionen berechnet und aufgetragen. Stehen für einen Konkurrenten keine Daten zur Verfügung, ist er im Diagramm nicht zu sehen! Je mehr Rankings und Konkurrenten vorhanden sind, desto langsamer kann das Erstellen des Graphen sein - das gilt vor allem bei langen Intervallen!</p>
+            <p>竞争指数是类似于正常排名指数。对于每个竞争者的平均仓位计算和绘制。静置竞争对手，没有数据可用，它不能被视为在图表中！越多的排名和竞争对手都存在，慢可以创建图表是 - 这是尤其如此，在很长的时间间隔！</p>
         </div>
 
         <div class="row">
@@ -45,11 +45,11 @@
         <!-- /.row -->
 
         <div class="alert alert-success">
-            <i class="fa fa-question-circle"></i> <strong>Die beiden roten Linien im Diagramm</strong> markieren den Bereich zwischen Position 1 und 25. Dein durchschnittliches Ranking sollte möglichst klein sein, das bedeutet gleichzeitig, dass die Anzahl von Keywords mit sehr guten Plätzen hoch ist. Die Berechnung des Rankingindex ist recht einfach: Wenn zwei Keywords getrackt werden, davon eines auf Position 5 und das andere auf Position 30 ist, ist die Summe 35. Das wird durch die Anzahl an Keywords geteilt - so entsteht der Index. In dem Fall wäre es also 17,5!
+            <i class="fa fa-question-circle"></i> <strong>图中的两条红线</strong> 标记位置1和25中的平均排名之间的面积要小，这也意味着关键字具有很好的名额是很高的。排名指数的计算是非常简单：如果两个关键字跟踪，其中包括在5位，另一种是30位，总和为35。这是通过关键词的数量除以 - 以便创建索引。因此，在本情况下，将17.5！
         </div>
 
         <div class="alert alert-danger">
-            <i class="fa fa-info-circle"></i> <strong>Rechenleistung bzw. Ausführungsdauer:</strong> Je größer das gewählte Intervall, desto länger dauert es, die Daten aus der Datenbank zu aggregieren und aufzubereiten. Dazu kommt das Rendern des Graphen - unter Umständen kann es also dazu kommen, dass dein Server mit einem "Maximum execution time of XX seconds exceeded" abbricht. Hier hilft leider nur das Anpassen der Server- und PHP-Einstellungen. Dieser Effekt verstärkt sich außerdem je höher die Anzahl der Keywords sowie die Anzahl der Konkurrenten ist.
+            <i class="fa fa-info-circle"></i> <strong>计算能力或完成日期：</strong> 越大选定的时间间隔，该时间越长，从数据库和再循环汇总数据。添加到图的这一渲染 - 在某些情况下，它可能会因此发生，你的服务器失败，出现“第XX秒的最长执行时间超出”。遗憾的是这里唯一的解决办法是定制服务器和PHP设置。这种效果也加剧了更高的关键字的数目和竞争者的数量。
         </div>
     </div>
     <!-- /.container-fluid -->

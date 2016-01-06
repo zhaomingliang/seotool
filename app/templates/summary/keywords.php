@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-bar-chart-o"></i> Zusammenfassung <small>Verarbeitete Keywords für <?php echo $projectData['currentProjectURL'];?></small>
+                    <i class="fa fa-bar-chart-o"></i> 摘要 <small>加工的关键字 <?php echo $projectData['currentProjectURL'];?></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li class="active">
                         <i class="fa fa-fw fa-bar-chart-o"></i> Verarbeitete Keywords
@@ -21,7 +21,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p>Hier kannst du beobachten, wie viele Keywords pro Tag verarbeitet wurden. Du erkennst hier zum einen, ob alle Keywords, die im Projekt gespeichert wurden, auch wirklich vom Cronjob verarbeitet wurden und zum anderen siehst du, wenn du neue Keywords hinzufügst oder löschst.</p>
+            <p>在这里，你可以看到有多少关键字每天被处理。你意识到在这里，一方面，如果所有已保存在项目中的关键字，是由cron作业和在另一方面，你看，当你添加新的关键字或删除其实际处理。</p>
         </div>
 
         <div class="row">

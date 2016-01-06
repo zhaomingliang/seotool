@@ -5,7 +5,7 @@ $app->get('/login/', function ($request, $response) {
     $session = new \RKA\Session();
 
     if($session->loggedin === '1') {
-        return $response->withStatus(301)->withHeader('Location', '/dashboard/index/');
+        return $response->withStatus(301)->withHeader('Location', '/Dashboard/index/');
     }
 
     $c = new App\Controller\Login($request, $response, $this->renderer);
@@ -14,14 +14,14 @@ $app->get('/login/', function ($request, $response) {
 
 $app->post('/login/', function ($request, $response) {
 
-    return $response->withStatus(301)->withHeader('Location', '/dashboard/index/');
+    return $response->withStatus(301)->withHeader('Location', '/Dashboard/index/');
 })->add(new App\SimpleAuth());
 
 $app->get('/logout/', function ($request, $response) {
     return $response->withStatus(301)->withHeader('Location', '/login/');
 })->add(new App\Logout());
 
-$app->get('/{class:dashboard|settings}/index/', function ($request, $response, $args) {
+$app->get('/{class:Dashboard|settings}/index/', function ($request, $response, $args) {
 
     $className = 'App\\Controller\\' . ucfirst($args['class']);
     $c         = new $className($request, $response, $this->db, $this->renderer);
@@ -73,7 +73,7 @@ $app->group('/projects', function () {
     $this->get('/select/{id:\d+}/', function ($request, $response, $args) {
         $session = new \RKA\Session();
         $session->set('currentProject', $args['id']);
-        return $response->withStatus(301)->withHeader('Location', '/dashboard/index/');
+        return $response->withStatus(301)->withHeader('Location', '/Dashboard/index/');
     });
 })->add(new App\CheckAuth());
 

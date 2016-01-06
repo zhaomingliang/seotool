@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-dashboard"></i> Dashboard <small><?php echo $projectData['currentProjectURL'];?></small>
+                    <i class="fa fa-Dashboard"></i> Dashboard <small><?php echo $projectData['currentProjectURL'];?></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li class="active">
-                        <i class="fa fa-dashboard"></i> Dashboard
+                        <i class="fa fa-Dashboard"></i> Dashboard
                     </li>
                 </ol>
             </div>
@@ -30,13 +30,13 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?php echo $quickInfo['keywords'];?></div>
-                                <div>Keywords</div>
+                                <div>关键字</div>
                             </div>
                         </div>
                     </div>
                     <a href="/keywords/add/">
                         <div class="panel-footer">
-                            <span class="pull-left">Keywords hinzufügen</span>
+                            <span class="pull-left">添加关键字</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                             <div class="clearfix"></div>
                         </div>
@@ -119,7 +119,7 @@
                         <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Positionsverteilung für <?php echo $projectData['currentProjectURL'];?></h3>
                     </div>
                     <div class="panel-body">
-                        <div id="dashboard-posdis"></div>
+                        <div id="Dashboard-posdis"></div>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                         <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Backlinkverteilung nach Relationen für <?php echo $projectData['currentProjectURL'];?></h3>
                     </div>
                     <div class="panel-body">
-                        <div id="dashboard-relations"></div>
+                        <div id="Dashboard-relations"></div>
                     </div>
                 </div>
             </div>
@@ -218,7 +218,7 @@
                         <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Rankingindex für <?php echo $projectData['currentProjectURL'];?> in den letzten 7 Tagen</h3>
                     </div>
                     <div class="panel-body">
-                        <div id="dashboard-ranking"></div>
+                        <div id="Dashboard-ranking"></div>
                     </div>
                 </div>
             </div>

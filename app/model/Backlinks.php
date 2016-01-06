@@ -44,13 +44,13 @@ class Backlinks
 
         switch ($page) {
             case 'add':
-                $this->additionalData['title'] = 'SEO Tool: Backlink hinzufügen';
+                $this->additionalData['title'] = '搜索引擎优化工具：增加反向链接';
                 break;
             case 'edit':
-                $this->additionalData['title'] = 'SEO Tool: Backlink bearbeiten';
+                $this->additionalData['title'] = '搜索引擎优化工具：编辑反向链接';
                 break;
             default:
-                $this->additionalData['title'] = 'SEO Tool: Backlinks';
+                $this->additionalData['title'] = 'SEO Tool: Backlinks搜索引擎优化工具';
         }
 
     }

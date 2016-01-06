@@ -45,7 +45,7 @@ class Summary
             $html[] = '<h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Positionsverteilung am ' . $posDataValues['date'] . '</h3>';
             $html[] = '</div>';
             $html[] = '<div class="panel-body">';
-            $html[] = '<div id="dashboard-posdis' . $posDataKey . '"></div>';
+            $html[] = '<div id="Dashboard-posdis' . $posDataKey . '"></div>';
             $html[] = '</div>';
             $html[] = '</div>';
         }
@@ -63,7 +63,7 @@ class Summary
         foreach ($this->modelData['posDist'] as $posDataKey => $posDataValues) {
 
             $barChart->setConfig([
-                'element'     => 'dashboard-posdis' . $posDataKey,
+                'element'     => 'Dashboard-posdis' . $posDataKey,
                 'xkey'        => 'posData',
                 'ykeys'       => "['posAnzahl']",
                 'labels'      => "['Anzahl Keywords']",

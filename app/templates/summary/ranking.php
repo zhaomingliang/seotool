@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-bar-chart-o"></i>  Zusammenfassung <small>Rankingindex für <?php echo $projectData['currentProjectURL'];?></small>
+                    <i class="fa fa-bar-chart-o"></i>  摘要 <small>Rankingindex für <?php echo $projectData['currentProjectURL'];?></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li class="active">
                         <i class="fa fa-fw fa-bar-chart-o"></i> Einzelranking

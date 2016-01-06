@@ -10,10 +10,10 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li>
-                        <i class="fa fa-list"></i>  <a href="/keywords/index/">Keywordübersicht</a>
+                        <i class="fa fa-list"></i>  <a href="/keywords/index/">关键字概述</a>
                     </li>
                     <li class="active">
                         <i class="fa fa-fw fa-save"></i> Export

@@ -10,7 +10,7 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li class="active">
                         <i class="fa fa-fw fa-list"></i> Konkurrenzübersicht
@@ -39,7 +39,7 @@
             <?php echo $selectedDateHTML;?>
         </div>
         <div class="col-lg-push-3 col-lg-3 text-right">
-            <a type="button" class="btn btn-primary" href="/keywords/add/"> <i class="fa fa-plus"></i> Keywords hinzufügen</a>
+            <a type="button" class="btn btn-primary" href="/keywords/add/"> <i class="fa fa-plus"></i> 添加关键字</a>
         </div>
 
         <div class="col-lg-12">
@@ -62,7 +62,7 @@
         <!-- /.row -->
 
         <div class="col-lg-12 text-right">
-            <a type="button" class="btn btn-primary" href="/keywords/add/"> <i class="fa fa-plus"></i> Keywords hinzufügen</a>
+            <a type="button" class="btn btn-primary" href="/keywords/add/"> <i class="fa fa-plus"></i> 添加关键字</a>
         </div>
         <!-- /.row -->
 

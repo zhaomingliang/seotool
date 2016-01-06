@@ -6,24 +6,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-bar-chart-o"></i> Rankingwert
+                    <i class="fa fa-bar-chart-o"></i> 价值榜
                 </h1>
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
                     </li>
                     <li>
-                        <i class="fa fa-list"></i> <a href="/keywords/index/">Keywordübersicht</a>
+                        <i class="fa fa-list"></i> <a href="/keywords/index/">关键字概述</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-bar-chart-o"></i> Rankingwert
+                        <i class="fa fa-bar-chart-o"></i> 价值榜
                     </li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
 
-        <div class="well"><strong>Je kleiner, desto besser!</strong>. Die Werte ergeben sich aus dem Produkt aus Position und Traffic für jedes Keyword. Davon wird der Durchschnitt gebildet. Der Rankingwert zieht in den Vergleich noch das Trafficvolumen mit ein. Wurde für ein Keyword kein Ranking gefunden ( = NULL) wird es als sehr schlecht ( = Positon 150) angenommen. Ein konkretes Rechenbeispiel findet sich unten.</div>
+        <div class="well"><strong>Je kleiner, desto besser!</strong>. Die Werte ergeben sich aus dem Produkt aus Position und Traffic für jedes Keyword. Davon wird der Durchschnitt gebildet. Der 价值榜 zieht in den Vergleich noch das Trafficvolumen mit ein. Wurde für ein Keyword kein Ranking gefunden ( = NULL) wird es als sehr schlecht ( = Positon 150) angenommen. Ein konkretes Rechenbeispiel findet sich unten.</div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">

@@ -51,10 +51,10 @@ class Keywords
         $keywordAvailable = $model->setKeywordData($keywordID);
 
         if($keywordAvailable == 0) {
-            // return $this->response->withStatus(301)->withHeader("Location","/dashboard/index");
+            // return $this->response->withStatus(301)->withHeader("Location","/Dashboard/index");
             // $this->response will hier nicht... innerhalb der route problemlos, aber eben nicht hier!
             // Alternativvorschläge?
-            header("Location: /dashboard/index");
+            header("Location: /Dashboard/index");
             exit();
         }
 

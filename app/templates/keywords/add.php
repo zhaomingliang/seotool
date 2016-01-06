@@ -6,17 +6,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-list"></i> Keywords hinzufügen
+                    <i class="fa fa-list"></i> 添加关键字
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li>
-                        <i class="fa fa-fw fa-list"></i> <a href="/keywords/index/">Keywordübersicht</a>
+                        <i class="fa fa-fw fa-list"></i> <a href="/keywords/index/">关键字概述</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-plus"></i> Keywords hinzufügen
+                        <i class="fa fa-plus"></i> 添加关键字
                     </li>
                 </ol>
             </div>

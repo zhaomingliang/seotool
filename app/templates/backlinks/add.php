@@ -10,7 +10,7 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li>
                         <i class="fa fa-fw fa-link"></i> <a href="/backlinks/index/">Backlinkübersicht</a>

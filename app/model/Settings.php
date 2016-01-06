@@ -26,7 +26,7 @@ class Settings
         $this->session  = new \RKA\Session();
 
 
-        $this->additionalData['title'] = 'SEO Tool: Einstellungen';
+        $this->additionalData['title'] = '搜索引擎优化工具：设置';
 
         $this->additionalData['currentProjectNameData'] = new \App\CurrentProject_TopBar($this->db);
 

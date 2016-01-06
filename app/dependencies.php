@@ -20,6 +20,6 @@ $container['notFoundHandler'] = function ($container) {
     return function ($request, $response) use ($container) {
         return $container['response']
             ->withStatus(301)
-            ->withHeader('Location', '/dashboard/index/');
+            ->withHeader('Location', '/Dashboard/index/');
     };
 };

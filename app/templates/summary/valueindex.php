@@ -6,14 +6,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-bar-chart-o"></i> Rankingwertindex <small>aller Konkurrenten</small>
+                    <i class="fa fa-bar-chart-o"></i> 价值榜index <small>aller Konkurrenten</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/dashboard/index/">Dashboard</a>
+                        <i class="fa fa-Dashboard"></i>  <a href="/Dashboard/index/">Dashboard</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-fw fa-bar-chart-o"></i> Rankingwertindex
+                        <i class="fa fa-fw fa-bar-chart-o"></i> 价值榜index
                     </li>
                 </ol>
             </div>
@@ -21,7 +21,7 @@
         <!-- /.row -->
 
         <div class="well">
-            <p><strong>Je kleiner, desto besser!</strong> Der Rankingwert wird hier auf die y-Achse für jeden Konkurrenten aufgetragen. Dessen Berechnung ist <a href="/summary/value/">hier</a> genauer erklärt.</p>
+            <p><strong>Je kleiner, desto besser!</strong> Der 价值榜 wird hier auf die y-Achse für jeden Konkurrenten aufgetragen. Dessen Berechnung ist <a href="/summary/value/">hier</a> genauer erklärt.</p>
         </div>
 
         <div class="row">
